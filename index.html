@@ -397,6 +397,20 @@
   .status-watch{ background:var(--gold-soft); color:var(--gold-deep); }
   .status-closed{ background:var(--grey-soft); color:var(--grey); }
 
+  .funding-pill{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    padding:5px 11px;
+    border-radius:999px;
+    white-space:nowrap;
+    border:1px solid transparent;
+  }
+  .funding-financee{ background:var(--jade-soft); color:var(--jade); border-color:var(--jade); }
+  .funding-payante{ background:var(--rust-soft); color:var(--rust); border-color:var(--rust); }
+  .funding-inconnue{ background:var(--grey-soft); color:var(--grey); border-color:var(--grey); }
+  .res-card-head .pills{ display:flex; gap:8px; flex-wrap:wrap; }
+
   .res-card-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -506,9 +520,90 @@
     .res-row{ grid-template-columns:1fr; }
     .res-field:nth-child(-n+2){ border-top:1px solid var(--paper-2); }
   }
+
+  /* ---------- alerte statut : nouveaux appels ouverts ---------- */
+  .status-alert{
+    background:var(--jade-soft);
+    border-bottom:1px solid var(--jade);
+  }
+  .status-alert-inner{
+    max-width:1180px;
+    margin:0 auto;
+    padding:14px 32px;
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+  }
+  .status-alert-icon{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#fff;
+    background:var(--jade);
+    padding:5px 10px;
+    border-radius:999px;
+    white-space:nowrap;
+    margin-top:2px;
+  }
+  .status-alert-body{ flex:1; }
+  .status-alert-date{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    color:#3E6B5C;
+    margin-bottom:3px;
+  }
+  .status-alert-title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:15px;
+    color:#1F4A3C;
+    margin-bottom:4px;
+  }
+  .status-alert-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 18px;
+    font-size:13.5px;
+    color:#2C5346;
+  }
+  .status-alert-list .item{ white-space:nowrap; }
+  .status-alert-list a.res-link{ color:#1F4A3C; border-color:#1F4A3C; }
+  .status-alert-list a.res-link:hover{ color:var(--jade); border-color:var(--jade); }
+  .status-alert-list .deadline{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:#3E6B5C; }
+  .status-alert-close{
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:#2C5346;
+    padding:4px 8px;
+    border-radius:6px;
+    white-space:nowrap;
+  }
+  .status-alert-close:hover{ background:rgba(62,107,92,0.12); }
+  @media (max-width:640px){
+    .status-alert-inner{ padding:12px 18px; flex-direction:column; }
+  }
 </style>
 </head>
 <body>
+
+<div class="status-alert" id="status-alert" style="display:none;">
+  <div class="status-alert-inner">
+    <span class="status-alert-icon">Open call</span>
+    <div class="status-alert-body">
+      <div class="status-alert-date" id="status-alert-date"></div>
+      <div class="status-alert-title">Résidences passées en appel ouvert</div>
+      <div class="status-alert-list" id="status-alert-list"></div>
+    </div>
+    <button type="button" class="status-alert-close" id="status-alert-close">Masquer ✕</button>
+  </div>
+</div>
 
 <header class="site">
   <div class="header-top">
@@ -620,10 +715,10 @@ const PLATFORM_DATA = [
         link: "https://www.institutfrancais.com/fr/programme/aide-projet/villae-residences-artistiques-du-reseau-diplomatique-culturel-francais",
         residencies: [
           ["Villa Kujoyama", "Japon", "found", "Fermé — réouverture 2027. Existe indépendamment d'AIR_J mais y est aussi référencée (double présence, voir section Japon)."],
-          ["Villa Cheongju", "Corée du Sud", "found", "Fermé depuis avril 2026 — cycle annuel. N'apparaît PAS dans le répertoire coréen TheArtro (voir orphelines)."],
-          ["Villa Hanbul / Hongti Art Center Busan", "Corée du Sud", "found", "À reconfirmer pour 2027. Porté par l'ambassade de France — explicitement exclu de la propre veille de TheArtro (voir orphelines)."],
-          ["Villa Formose", "Taïwan", "found", "Identifiée ouverte — à reconfirmer. Non retrouvée sur ARNT, le répertoire officiel taïwanais (voir orphelines)."],
-          ["Yi Tong", "Chine", "found", "Identifiée ouverte — à reconfirmer. Aucune plateforme chinoise officielle équivalente à AIR_J identifiée à ce jour (voir orphelines)."],
+          ["Villa Cheongju", "Corée du Sud", "found", "Fermé depuis avril 2026 — cycle annuel. N'apparaît pas dans le répertoire coréen TheArtro, mais suivie via VILLÆ (réseau France) — pas une orpheline."],
+          ["Villa Hanbul / Hongti Art Center Busan", "Corée du Sud", "found", "À reconfirmer pour 2027. Porté par l'ambassade de France — explicitement exclu de la propre veille de TheArtro, mais suivi via VILLÆ (réseau France) — pas une orpheline."],
+          ["Villa Formose", "Taïwan", "found", "Identifiée ouverte — à reconfirmer. Non retrouvée sur ARNT, le répertoire officiel taïwanais, mais suivie via VILLÆ (réseau France) — pas une orpheline."],
+          ["Yi Tong", "Chine", "found", "Identifiée ouverte — à reconfirmer. Aucune plateforme chinoise officielle équivalente à AIR_J identifiée à ce jour, mais suivie via VILLÆ (réseau France) — pas une orpheline."],
           ["Institut français × Cité internationale des arts", "Paris, France", "found", "Ouvert — clôture 8 oct. 2026. Candidature obligatoirement portée par un partenaire culturel."],
           ["Résidence Échos", "Chili", "neutral", "Signalée pour mémoire, hors périmètre territorial actuel du projet."],
           ["Villa Swagatam", "Inde", "neutral", "Signalée pour mémoire, savoir-faire artisanaux Inde / Asie du Sud."]
@@ -657,7 +752,7 @@ const PLATFORM_DATA = [
         residencies: [
           ["AIR Taipei — dont le volet Treasure Hill Artist Village × Puppetry Art Center of Taipei (THAV × PACT)", "Taïwan (Taipei)", "found", "CONFIRMÉ — appel annuel mars-juin. CORRECTION au répertoire précédent : « AIR Taipei × Puppetry Art Center » et « THAV × PACT » étaient listés comme deux résidences distinctes — c'est EN RÉALITÉ LA MÊME RÉSIDENCE. THAV×PACT est le nom exact du volet marionnette/masque au sein d'AIR Taipei : candidatures internationales, hébergement à Treasure Hill, représentations au Puppetry Art Center. Écosystème le plus directement apparenté au masque identifié à Taïwan."]
         ],
-        note: "Villa Formose (programme franco-taïwanais) n'est PAS retrouvée sur ARNT malgré une recherche dédiée — voir orphelines."
+        note: "Villa Formose (programme franco-taïwanais) n'est pas retrouvée sur ARNT malgré une recherche dédiée — suivie via VILLÆ (réseau France), voir section « Réseau français »."
       }
     ]
   },
@@ -674,7 +769,7 @@ const PLATFORM_DATA = [
           ["Seoul Art Space Geumcheon / Incheon Art Platform / Artist Residency TEMI (Daejeon)", "Corée du Sud (région capitale et régions)", "found", "CONFIRMÉ couverts — options publiques supplémentaires non explorées jusqu'ici, à évaluer si le talchum seul ne suffit pas à justifier la Corée."],
           ["ACC_R Gwangju (Asia Culture Center × Rijksakademie) et Villa Hanbul / Hongti Art Center Busan", "Corée du Sud (Gwangju / Busan)", "excluded", "EXPLICITEMENT EXCLU par TheArtro elle-même : « due to the limited time for research… ACC-Rijksakademie… and Hongti Art Center Residency in Busan… were not able to be included ». Même la plateforme de référence coréenne ne les couvre pas — à contacter directement."]
         ],
-        note: "Villa Cheongju (programme franco-coréen) n'apparaît dans aucun article TheArtro consulté — voir orphelines."
+        note: "Villa Cheongju (programme franco-coréen) n'apparaît dans aucun article TheArtro consulté — suivie via VILLÆ (réseau France), voir section « Réseau français »."
       }
     ]
   },
@@ -750,12 +845,8 @@ const PLATFORM_DATA = [
 ];
 
 const ORPHANS = [
-  ["Villa Cheongju", "Corée du Sud", "Introuvable sur TheArtro (recherche dédiée effectuée). Uniquement documentée via VILLÆ / Institut français — pas de trace côté institutions coréennes elles-mêmes."],
-  ["Villa Hanbul / Hongti Art Center Busan", "Corée du Sud", "Explicitement exclue par TheArtro elle-même (citation directe, voir section Corée)."],
-  ["ACC_R Gwangju", "Corée du Sud", "Explicitement exclue par TheArtro elle-même — à vérifier directement sur acc.go.kr, hors du radar de la plateforme coréenne de référence."],
-  ["Villa Formose", "Taïwan", "Introuvable sur ARNT malgré recherche dédiée — uniquement documentée via VILLÆ / Institut français."],
-  ["Yi Tong", "Chine", "Absence structurelle : pas d'équivalent chinois à AIR_J/ARNT/TheArtro repéré. China Residencies (répertoire indépendant) reste la seule piste, non encore interrogée spécifiquement."],
-  ["TaDA Residency", "Suisse", "Hors du périmètre Asie/Nordique de cette veille par plateforme — programme indépendant suisse, à suivre directement sur son propre site."],
+  ["ACC_R Gwangju", "Corée du Sud", "Introuvable sur toute plateforme de veille identifiée à ce jour (explicitement exclue par TheArtro elle-même, absente de VILLÆ car hors réseau français) — à surveiller directement sur acc.go.kr."],
+  ["TaDA Residency", "Suisse", "Introuvable sur toute plateforme de veille identifiée à ce jour — programme indépendant suisse, à suivre directement sur son propre site."],
   ["Lizé Puppet Art Colony", "Pays non confirmé (à vérifier)", "Introuvable sur toutes les plateformes consultées, y compris recherche web directe. Nécessite une recherche dédiée pour confirmer même le pays et l'existence actuelle du programme."],
   ["Résidences Philippines (axe 6, Moriones / possession)", "Philippines", "Aucune plateforme nationale ou régionale équivalente identifiée — gap le plus important du répertoire. À chercher via CCP (Cultural Center of the Philippines) ou NCCA directement."]
 ];
@@ -769,6 +860,7 @@ const RESIDENCES = [
     echeance: "Dépôt habituel janv.–mars pour la cohorte suivante (à reconfirmer)",
     duree: "~6 mois (variable)",
     prise: "Bourse + logement (mécénat Fondation Bettencourt Schueller)",
+    financement: "financee",
     ecosysteme: "Écoles de nô, artisans du masque (nômen-shi), réseau Institut français au Japon",
     atelier: "À vérifier — accès atelier nômen-shi non garanti d'office",
     justif: "Terrain le plus balisé théoriquement dans les notes de travail — point de départ du projet",
@@ -782,6 +874,7 @@ const RESIDENCES = [
     echeance: "Réouverture probable début 2027",
     duree: "À reconfirmer (souvent 2-3 mois)",
     prise: "À reconfirmer",
+    financement: "inconnue",
     ecosysteme: "Cheongju Craft Biennale, réseau métiers d'art coréens",
     atelier: "Ateliers métiers d'art sur site",
     justif: "Corée = talchum, mais aussi écoles de broderie (Séoul) à activer en parallèle",
@@ -795,6 +888,7 @@ const RESIDENCES = [
     echeance: "Appel généralement au printemps",
     duree: "3 mois",
     prise: "Allocation 2000€ + billets + logement",
+    financement: "financee",
     ecosysteme: "Hongti Art Center (exposition de restitution en fin de résidence)",
     atelier: "Atelier au sein du centre d'art",
     justif: "Diplôme d'école d'art + 5 ans de pratique + anglais/coréen requis — à vérifier compatibilité avec le profil de Cécile",
@@ -808,6 +902,7 @@ const RESIDENCES = [
     echeance: "À reconfirmer",
     duree: "1 mois",
     prise: "À reconfirmer",
+    financement: "inconnue",
     ecosysteme: "Écosystème métiers d'art et opéra taïwanais",
     atelier: "Résidence orientée recherche plutôt que production lourde",
     justif: "Durée courte (1 mois) : compatible avec repérage/tests, pas avec un objet-témoin abouti — à combiner avec une 2e étape",
@@ -821,6 +916,7 @@ const RESIDENCES = [
     echeance: "À reconfirmer",
     duree: "À reconfirmer",
     prise: "À reconfirmer",
+    financement: "inconnue",
     ecosysteme: "Artisans bianlian, opéra de Pékin",
     atelier: "À reconfirmer",
     justif: "Chine = deux traditions distinctes (bianlian / lianpu) à traiter séparément",
@@ -834,6 +930,7 @@ const RESIDENCES = [
     echeance: "À reconfirmer sur site ACC",
     duree: "À reconfirmer",
     prise: "Financement de production important (hors réseau IF)",
+    financement: "financee",
     ecosysteme: "Grand centre d'arts vivants, pluridisciplinaire",
     atelier: "Moyens de production notables — pertinent si captation vidéo/performance",
     justif: "Sort du seul réseau Institut français, élargit la focale coréenne au-delà du talchum",
@@ -847,6 +944,7 @@ const RESIDENCES = [
     echeance: "Réouverture probable printemps 2027 (appel habituel mars-juin)",
     duree: "À reconfirmer",
     prise: "À reconfirmer",
+    financement: "inconnue",
     ecosysteme: "Puppetry Art Center — communauté marionnettistes/masques taïwanais",
     atelier: "Hébergement Treasure Hill Artist Village, représentations au Puppetry Art Center",
     justif: "Écosystème le plus directement apparenté au masque identifié à Taïwan — confirmé présent sur ARNT et Res Artis",
@@ -860,45 +958,49 @@ const RESIDENCES = [
     echeance: "À reconfirmer",
     duree: "À reconfirmer",
     prise: "Seule résidence payante hors réseau français identifiée mi-2026",
+    financement: "payante",
     ecosysteme: "Communauté textile suisse",
     atelier: "Atelier textile dédié",
     justif: "Ne relève pas d'un axe territorial mais complète l'approche matérielle",
     lien: "à reconfirmer"
   },
   {
-    name: "Centre Textile d'Islande (Textilmiðstöð Íslands)", loc: "Blönduós, Islande", status: "open",
+    name: "Centre Textile d'Islande (Textilmiðstöð Íslands)", loc: "Blönduós, Islande", status: "open", justOpened: true,
     statusLabel: "Ouvert — candidatures en continu",
     axe: "Piste ouverte « flou / brume » — matière textile pure",
     reseau: "Indépendant (fondé 2005)",
     echeance: "Candidatures examinées en continu",
     duree: "Variable, séjours courts à moyens",
     prise: "Payant en principe — vérifier bourses complémentaires",
+    financement: "payante",
     ecosysteme: "Communauté textile internationale, ville historiquement liée à la laine",
     atelier: "Teinture, métiers à tisser (Tc2), feutre, tricot numérique, découpe laser — le plus complet identifié",
     justif: "Pas de justification « masque » a priori — à construire autour de la brume/lumière nordique",
     lien: "resartis.org"
   },
   {
-    name: "SÍM Residency (Korpúlfsstaðir)", loc: "Reykjavik, Islande", status: "open",
+    name: "SÍM Residency (Korpúlfsstaðir)", loc: "Reykjavik, Islande", status: "open", justOpened: true,
     statusLabel: "Ouvert — vérifier fenêtres d'appel",
     axe: "Piste « flou / brume »",
     reseau: "SÍM — Association des artistes visuels islandais",
     echeance: "À reconfirmer",
     duree: "Variable",
     prise: "Atelier textile inclus dans les ~70 studios",
+    financement: "inconnue",
     ecosysteme: "Communauté d'artistes visuels internationale à Reykjavik",
     atelier: "Atelier textile dédié sur site",
     justif: "Alternative urbaine au Centre Textile de Blönduós — probablement moins spécialisée matière",
     lien: "icelandicartcenter.is"
   },
   {
-    name: "Institut français × Cité internationale des arts", loc: "Paris, France", status: "open",
+    name: "Institut français × Cité internationale des arts", loc: "Paris, France", status: "open", justOpened: true,
     statusLabel: "Ouvert — clôture 8 oct. 2026",
     axe: "Non territorial — retour réflexif / mise en réseau française",
     reseau: "Institut français / Cité internationale des arts",
     echeance: "Clôture 8 octobre 2026, 23h59 CET",
     duree: "3, 6 ou 9 mois",
     prise: "Atelier-logement gratuit ; allocation min. 700€/mois + voyage à charge d'un partenaire culturel",
+    financement: "financee",
     ecosysteme: "Scène parisienne, réseau Institut français, autres résidents internationaux",
     atelier: "Atelier-logement sur place, pas d'atelier textile spécialisé",
     justif: "Condition bloquante : candidature obligatoirement portée par un partenaire culturel",
@@ -912,6 +1014,7 @@ const RESIDENCES = [
     echeance: "Candidatures jusqu'au 27 mars 2026 (2026)",
     duree: "1 mois",
     prise: "Bourse de résidence",
+    financement: "financee",
     ecosysteme: "À documenter",
     atelier: "À documenter",
     justif: "Non prioritaire au vu des territoires ciblés — gardé en veille passive",
@@ -925,6 +1028,7 @@ const RESIDENCES = [
     echeance: "Candidatures 17 avril–31 mai 2026",
     duree: "À reconfirmer",
     prise: "À documenter",
+    financement: "inconnue",
     ecosysteme: "Réseau savoir-faire artisanaux Inde / Asie du Sud",
     atelier: "À documenter",
     justif: "Accent littérature et savoir-faire artisanaux — pertinence à évaluer si le projet s'ouvre à l'Inde",
@@ -938,6 +1042,7 @@ const RESIDENCES = [
     echeance: "À reconfirmer",
     duree: "À reconfirmer",
     prise: "À reconfirmer",
+    financement: "inconnue",
     ecosysteme: "À reconfirmer",
     atelier: "À reconfirmer",
     justif: "Écosystème marionnette potentiellement proche de l'axe 7 — recherche dédiée nécessaire",
@@ -951,6 +1056,7 @@ const RESIDENCES = [
     echeance: "—",
     duree: "—",
     prise: "—",
+    financement: "inconnue",
     ecosysteme: "Festival Moriones (Marinduque), artisanat masque/textile local (T'nalak, piña, broderie Lumban)",
     atelier: "—",
     justif: "Piste la moins avancée du répertoire — à chercher via CCP, NCCA, structures locales à Marinduque ou Manille",
@@ -1105,8 +1211,8 @@ function renderPlatforms(filterText){
     block.className = "region-block";
     block.id = "region-orphelines";
     let html = `<div class="orphan-block">
-      <h3>⚠ Résidences introuvables sur les plateformes vérifiées</h3>
-      <p class="lede">À rechercher directement sur leur propre site, ou signal qu'elles sont hors des circuits usuels.</p>`;
+      <h3>⚠ Résidences absentes de toute plateforme de veille identifiée</h3>
+      <p class="lede">Aucune base de données (nationale, réseau France ou internationale) ne les référence à ce jour — à surveiller directement sur leur propre site pour ne pas manquer un appel ouvert.</p>`;
     orphanMatches.forEach(o => {
       html += `<div class="orphan-row">
         <div class="name">${linkedName(o[0])}</div>
@@ -1170,6 +1276,11 @@ function statusClass(s){
   if(s === "watch") return "status-watch";
   return "status-closed";
 }
+function fundingBadge(f){
+  if(f === "financee") return { cls: "funding-financee", label: "Financée" };
+  if(f === "payante") return { cls: "funding-payante", label: "Payante" };
+  return { cls: "funding-inconnue", label: "Financement à vérifier" };
+}
 let currentStatusFilter = "all";
 
 function renderResidences(filterText){
@@ -1197,20 +1308,24 @@ function renderResidences(filterText){
   filtered.forEach(r => {
     const card = document.createElement("div");
     card.className = "res-card";
+    const fb = fundingBadge(r.financement);
     card.innerHTML = `
       <div class="res-card-head">
         <div>
           <h3>${linkedName(r.name)}</h3>
           <div class="loc">${r.loc}</div>
         </div>
-        <span class="status-pill ${statusClass(r.status)}">${r.statusLabel}</span>
+        <div class="pills">
+          <span class="status-pill ${statusClass(r.status)}">${r.statusLabel}</span>
+          <span class="funding-pill ${fb.cls}">${fb.label}</span>
+        </div>
       </div>
       <div class="res-card-grid">
         <div class="res-field"><div class="label">Territoire / axe</div><div class="val">${r.axe}</div></div>
         <div class="res-field"><div class="label">Réseau</div><div class="val">${r.reseau}</div></div>
         <div class="res-field"><div class="label">Échéance</div><div class="val">${r.echeance}</div></div>
         <div class="res-field"><div class="label">Durée</div><div class="val">${r.duree}</div></div>
-        <div class="res-field"><div class="label">Prise en charge</div><div class="val">${r.prise}</div></div>
+        <div class="res-field"><div class="label">Financement / coût</div><div class="val">${r.prise}</div></div>
         <div class="res-field"><div class="label">Écosystème local</div><div class="val">${r.ecosysteme}</div></div>
         <div class="res-field"><div class="label">Atelier</div><div class="val">${r.atelier}</div></div>
         <div class="res-field"><div class="label">Lien / source</div><div class="val mono">${r.lien}</div></div>
@@ -1256,6 +1371,41 @@ function renderVeille(){
   });
 }
 
+function renderStatusAlert(){
+  const banner = document.getElementById("status-alert");
+  const list = document.getElementById("status-alert-list");
+  const dateEl = document.getElementById("status-alert-date");
+  const now = new Date();
+  const dateLabel = now.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  dateEl.textContent = "Vérifié le " + dateLabel;
+
+  const opened = RESIDENCES.filter(r => r.status === "open" && r.justOpened);
+  if(opened.length === 0){ banner.style.display = "none"; return; }
+
+  // La bannière se ré-affiche automatiquement toutes les 24h, même si elle a
+  // été masquée, et immédiatement si la liste des résidences ouvertes change.
+  const DAY_MS = 24 * 60 * 60 * 1000;
+  const key = "veille-masques-dismissed-open-call";
+  const signature = opened.map(r => r.name).sort().join("|");
+  let dismissed = null;
+  try { dismissed = JSON.parse(localStorage.getItem(key) || "null"); } catch(e) {}
+  const stillFresh = dismissed
+    && dismissed.signature === signature
+    && (now.getTime() - dismissed.at) < DAY_MS;
+  if(stillFresh){ banner.style.display = "none"; return; }
+
+  list.innerHTML = opened.map(r =>
+    `<span class="item">${linkedName(r.name)} <span class="deadline">— ${r.echeance}</span></span>`
+  ).join("");
+  banner.style.display = "";
+
+  const closeBtn = document.getElementById("status-alert-close");
+  closeBtn.onclick = () => {
+    banner.style.display = "none";
+    try { localStorage.setItem(key, JSON.stringify({ signature, at: Date.now() })); } catch(e) {}
+  };
+}
+
 /* ============================================================
    INIT + interactions
    ============================================================ */
@@ -1296,6 +1446,7 @@ renderPlatforms("");
 renderResidences("");
 renderGrille();
 renderVeille();
+renderStatusAlert();
 setupStickyShadow();
 </script>
 </body>
