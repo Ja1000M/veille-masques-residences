@@ -522,88 +522,122 @@
   }
 
   /* ---------- alerte statut : nouveaux appels ouverts ---------- */
+  /* ---------- floating open-call alert bubble ---------- */
+  header.site{ position:relative; }
   .status-alert{
-    background:var(--jade-soft);
-    border-bottom:1px solid var(--jade);
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translate(-50%, 46%);
+    width:min(640px, calc(100% - 48px));
+    z-index:25;
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 12px 30px rgba(20,18,12,0.28), 0 2px 8px rgba(20,18,12,0.14);
+    overflow:hidden;
   }
   .status-alert-inner{
-    max-width:1180px;
-    margin:0 auto;
-    padding:14px 32px;
+    padding:14px 16px 12px 16px;
     display:flex;
-    align-items:flex-start;
-    gap:14px;
+    flex-direction:column;
+    gap:8px;
   }
+  .status-alert-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .status-alert-head-left{ display:flex; align-items:baseline; gap:9px; flex-wrap:wrap; }
   .status-alert-icon{
     font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
+    font-size:10.5px;
     font-weight:700;
     letter-spacing:0.08em;
     text-transform:uppercase;
     color:#fff;
     background:var(--jade);
-    padding:5px 10px;
+    padding:4px 9px;
     border-radius:999px;
     white-space:nowrap;
-    margin-top:2px;
-  }
-  .status-alert-body{ flex:1; }
-  .status-alert-date{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-    color:#3E6B5C;
-    margin-bottom:3px;
   }
   .status-alert-title{
     font-family:'Fraunces',serif;
     font-weight:600;
-    font-size:15px;
-    color:#1F4A3C;
-    margin-bottom:4px;
+    font-size:14px;
+    color:var(--text);
   }
-  .status-alert-list{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px 18px;
-    font-size:13.5px;
-    color:#2C5346;
+  .status-alert-date{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    color:var(--text-soft);
+    white-space:nowrap;
   }
-  .status-alert-list .item{ white-space:nowrap; }
-  .status-alert-list a.res-link{ color:#1F4A3C; border-color:#1F4A3C; }
-  .status-alert-list a.res-link:hover{ color:var(--jade); border-color:var(--jade); }
-  .status-alert-list .deadline{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:#3E6B5C; }
   .status-alert-close{
     background:none;
     border:none;
     cursor:pointer;
     font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    color:#2C5346;
-    padding:4px 8px;
+    font-size:11px;
+    color:var(--text-soft);
+    padding:3px 6px;
     border-radius:6px;
     white-space:nowrap;
+    flex-shrink:0;
   }
-  .status-alert-close:hover{ background:rgba(62,107,92,0.12); }
+  .status-alert-close:hover{ background:var(--paper-2); color:var(--text); }
+  .status-alert-list{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+  }
+  .alert-item{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    padding:4px 2px;
+    border-radius:7px;
+    line-height:1.3;
+  }
+  .alert-item .dot{
+    width:7px; height:7px; border-radius:50%;
+    flex-shrink:0;
+    margin-bottom:1px;
+  }
+  .alert-item .name{ font-weight:600; white-space:nowrap; }
+  .alert-item .when{
+    font-family:'IBM Plex Mono',monospace;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  /* urgency scale — calm jade far out, warming to rust as the deadline nears */
+  .alert-item.level-calm{ background:transparent; }
+  .alert-item.level-calm .dot{ background:var(--jade); }
+  .alert-item.level-calm .name{ font-size:13px; color:var(--text); }
+  .alert-item.level-calm .when{ font-size:11.5px; color:var(--jade); }
+
+  .alert-item.level-soon{ background:rgba(169,118,46,0.08); }
+  .alert-item.level-soon .dot{ background:var(--gold); }
+  .alert-item.level-soon .name{ font-size:13px; color:var(--text); }
+  .alert-item.level-soon .when{ font-size:11.5px; font-weight:600; color:var(--gold-deep); }
+
+  .alert-item.level-urgent{ background:rgba(163,74,50,0.1); }
+  .alert-item.level-urgent .dot{ background:var(--rust); box-shadow:0 0 0 3px rgba(163,74,50,0.18); }
+  .alert-item.level-urgent .name{ font-size:13.5px; font-weight:700; color:#7A3B28; }
+  .alert-item.level-urgent .when{ font-size:12px; font-weight:700; color:var(--rust); }
   @media (max-width:640px){
-    .status-alert-inner{ padding:12px 18px; flex-direction:column; }
+    .status-alert{ transform:translate(-50%, 30%); }
+    .alert-item{ flex-wrap:wrap; }
+    .alert-item .name{ white-space:normal; }
+    .alert-item .when{ white-space:normal; overflow:visible; text-overflow:clip; margin-left:15px; }
   }
 </style>
 </head>
 <body>
-
-<div class="status-alert" id="status-alert" style="display:none;">
-  <div class="status-alert-inner">
-    <span class="status-alert-icon">Open call</span>
-    <div class="status-alert-body">
-      <div class="status-alert-date" id="status-alert-date"></div>
-      <div class="status-alert-title">Résidences passées en appel ouvert</div>
-      <div class="status-alert-list" id="status-alert-list"></div>
-    </div>
-    <button type="button" class="status-alert-close" id="status-alert-close">Masquer ✕</button>
-  </div>
-</div>
 
 <header class="site">
   <div class="header-top">
@@ -619,6 +653,20 @@
     <button data-view="grille">Grille de sélection</button>
     <button data-view="veille">Veille</button>
   </nav>
+
+  <div class="status-alert" id="status-alert" style="display:none;">
+    <div class="status-alert-inner">
+      <div class="status-alert-head">
+        <div class="status-alert-head-left">
+          <span class="status-alert-icon">Open call</span>
+          <span class="status-alert-title">Résidences passées en appel ouvert</span>
+        </div>
+        <button type="button" class="status-alert-close" id="status-alert-close">Masquer ✕</button>
+      </div>
+      <div class="status-alert-date" id="status-alert-date"></div>
+      <div class="status-alert-list" id="status-alert-list"></div>
+    </div>
+  </div>
 </header>
 
 <main>
@@ -966,7 +1014,7 @@ const RESIDENCES = [
     lien: "artres.moc.gov.tw"
   },
   {
-    name: "Tsung-Yeh Arts and Cultural Center", loc: "Madou, Tainan, Taïwan", status: "open", justOpened: true,
+    name: "Tsung-Yeh Arts and Cultural Center", loc: "Madou, Tainan, Taïwan", status: "open", justOpened: true, deadlineISO: "2026-08-31",
     statusLabel: "Ouvert — clôture 31 août 2026",
     axe: "Craft / arts visuels — pas de focale masque/marionnette explicite, à évaluer comme terrain matériel complémentaire",
     reseau: "Indépendant (ancienne raffinerie de sucre reconvertie), fondé 2001 — référencé sur ARNT",
@@ -1022,7 +1070,7 @@ const RESIDENCES = [
     lien: "icelandicartcenter.is"
   },
   {
-    name: "Institut français × Cité internationale des arts", loc: "Paris, France", status: "open", justOpened: true,
+    name: "Institut français × Cité internationale des arts", loc: "Paris, France", status: "open", justOpened: true, deadlineISO: "2026-10-08",
     statusLabel: "Ouvert — clôture 8 oct. 2026",
     axe: "Non territorial — retour réflexif / mise en réseau française",
     reseau: "Institut français / Cité internationale des arts",
@@ -1425,8 +1473,41 @@ function renderStatusAlert(){
     && (now.getTime() - dismissed.at) < DAY_MS;
   if(stillFresh){ banner.style.display = "none"; return; }
 
-  list.innerHTML = opened.map(r =>
-    `<span class="item">${linkedName(r.name)} <span class="deadline">— ${r.echeance}</span></span>`
+  // Échelle d'urgence : calme (jade) → bientôt (or) → urgent (rouille), en fonction
+  // du nombre de jours restants jusqu'à deadlineISO. Sans date exacte connue
+  // (candidatures en continu, fenêtre à reconfirmer), on reste au niveau calme.
+  const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  function daysUntil(iso){
+    if(!iso) return null;
+    const target = new Date(iso + "T00:00:00");
+    return Math.round((target - todayMidnight) / (24 * 60 * 60 * 1000));
+  }
+  function levelFor(days){
+    if(days === null) return "calm";
+    if(days <= 14) return "urgent";
+    if(days <= 45) return "soon";
+    return "calm";
+  }
+  function whenLabel(r, days){
+    if(days === null) return "continu / à reconfirmer";
+    if(days < 0) return "clôturée";
+    if(days === 0) return "clôture aujourd'hui";
+    if(days === 1) return "clôture demain";
+    return `clôture dans ${days} j`;
+  }
+
+  const withUrgency = opened.map(r => {
+    const days = daysUntil(r.deadlineISO);
+    return { r, days, level: levelFor(days) };
+  });
+  withUrgency.sort((a, b) => (a.days === null ? 9999 : a.days) - (b.days === null ? 9999 : b.days));
+
+  list.innerHTML = withUrgency.map(({ r, days, level }) =>
+    `<div class="alert-item level-${level}">
+      <span class="dot"></span>
+      <span class="name">${linkedName(r.name)}</span>
+      <span class="when">${whenLabel(r, days)}</span>
+    </div>`
   ).join("");
   banner.style.display = "";
 
