@@ -750,7 +750,9 @@ const PLATFORM_DATA = [
         zone: "Taïwan",
         link: "https://artres.moc.gov.tw/en/",
         residencies: [
-          ["AIR Taipei — dont le volet Treasure Hill Artist Village × Puppetry Art Center of Taipei (THAV × PACT)", "Taïwan (Taipei)", "found", "CONFIRMÉ — appel annuel mars-juin. CORRECTION au répertoire précédent : « AIR Taipei × Puppetry Art Center » et « THAV × PACT » étaient listés comme deux résidences distinctes — c'est EN RÉALITÉ LA MÊME RÉSIDENCE. THAV×PACT est le nom exact du volet marionnette/masque au sein d'AIR Taipei : candidatures internationales, hébergement à Treasure Hill, représentations au Puppetry Art Center. Écosystème le plus directement apparenté au masque identifié à Taïwan."]
+          ["AIR Taipei — dont le volet Treasure Hill Artist Village × Puppetry Art Center of Taipei (THAV × PACT)", "Taïwan (Taipei)", "found", "CONFIRMÉ — appel annuel mars-juin. CORRECTION au répertoire précédent : « AIR Taipei × Puppetry Art Center » et « THAV × PACT » étaient listés comme deux résidences distinctes — c'est EN RÉALITÉ LA MÊME RÉSIDENCE. THAV×PACT est le nom exact du volet marionnette/masque au sein d'AIR Taipei : candidatures internationales, hébergement à Treasure Hill, représentations au Puppetry Art Center. Écosystème le plus directement apparenté au masque identifié à Taïwan."],
+          ["Lìzé Puppet Art Colony", "Wujie, Comté de Yilan", "found", "AJOUTÉ (août 2026) — premier lieu taïwanais dédié à la marionnette contemporaine, fondé 2014. Fiche ARNT dédiée + site propre lizepuppet.com.tw. Cette résidence était classée à tort comme « introuvable » dans une version antérieure du répertoire — corrigée."],
+          ["Tsung-Yeh Arts and Cultural Center", "Madou, Tainan", "found", "AJOUTÉ (août 2026) — ancienne raffinerie de sucre reconvertie, catégorie Craft. Ouvert, clôture 31 août 2026, thème 2027 « Site-Specific Art ». Pas de lien masque/marionnette direct identifié — gardé en veille passive."]
         ],
         note: "Villa Formose (programme franco-taïwanais) n'est pas retrouvée sur ARNT malgré une recherche dédiée — suivie via VILLÆ (réseau France), voir section « Réseau français »."
       }
@@ -847,7 +849,6 @@ const PLATFORM_DATA = [
 const ORPHANS = [
   ["ACC_R Gwangju", "Corée du Sud", "Introuvable sur toute plateforme de veille identifiée à ce jour (explicitement exclue par TheArtro elle-même, absente de VILLÆ car hors réseau français) — à surveiller directement sur acc.go.kr."],
   ["TaDA Residency", "Suisse", "Introuvable sur toute plateforme de veille identifiée à ce jour — programme indépendant suisse, à suivre directement sur son propre site."],
-  ["Lizé Puppet Art Colony", "Pays non confirmé (à vérifier)", "Introuvable sur toutes les plateformes consultées, y compris recherche web directe. Nécessite une recherche dédiée pour confirmer même le pays et l'existence actuelle du programme."],
   ["Résidences Philippines (axe 6, Moriones / possession)", "Philippines", "Aucune plateforme nationale ou régionale équivalente identifiée — gap le plus important du répertoire. À chercher via CCP (Cultural Center of the Philippines) ou NCCA directement."]
 ];
 
@@ -949,6 +950,34 @@ const RESIDENCES = [
     atelier: "Hébergement Treasure Hill Artist Village, représentations au Puppetry Art Center",
     justif: "Écosystème le plus directement apparenté au masque identifié à Taïwan — confirmé présent sur ARNT et Res Artis",
     lien: "artres.moc.gov.tw"
+  },
+  {
+    name: "Lìzé Puppet Art Colony", loc: "Wujie, Comté de Yilan, Taïwan", status: "watch",
+    statusLabel: "À reconfirmer — pas d'appel identifié à ce jour",
+    axe: "Marionnette contemporaine — résonance directe avec l'axe masque/objet manipulé (axe 7)",
+    reseau: "Indépendant, fondé 2014 — premier lieu taïwanais dédié à la marionnette contemporaine",
+    echeance: "Appels ponctuels (ex. programme 2024) — à surveiller sur artres.moc.gov.tw et lizepuppet.com.tw",
+    duree: "À reconfirmer",
+    prise: "À reconfirmer",
+    financement: "inconnue",
+    ecosysteme: "Atelier bois, zone de fabrication de marionnettes, atelier couture, mini-musée de la marionnette ; deux festivals annuels (Open Day, Open Lab)",
+    atelier: "Studio partagé (69 m² espace de répétition + 29 m² atelier créatif), 4 postes de résident",
+    justif: "CORRECTION (août 2026) : contrairement au répertoire précédent, cette résidence EST référencée sur ARNT — retirée de la liste des « introuvables », désormais à suivre ici comme les autres",
+    lien: "artres.moc.gov.tw"
+  },
+  {
+    name: "Tsung-Yeh Arts and Cultural Center", loc: "Madou, Tainan, Taïwan", status: "open", justOpened: true,
+    statusLabel: "Ouvert — clôture 31 août 2026",
+    axe: "Craft / arts visuels — pas de focale masque/marionnette explicite, à évaluer comme terrain matériel complémentaire",
+    reseau: "Indépendant (ancienne raffinerie de sucre reconvertie), fondé 2001 — référencé sur ARNT",
+    echeance: "Clôture 31 août 2026 — thème 2027 : « Site-Specific Art » (hydrologie, écologie et patrimoine de Tainan)",
+    duree: "À reconfirmer",
+    prise: "À reconfirmer",
+    financement: "inconnue",
+    ecosysteme: "Site de raffinerie de sucre reconverti, dortoir d'artistes (8 suites privées + cuisine partagée)",
+    atelier: "5 postes de résidence, studios ~65 m² convertis d'anciennes salles de classe",
+    justif: "Pas de lien masque direct identifié — à garder en veille passive comme terrain craft/matière si le thème 2027 s'y prête",
+    lien: "tyart.tnc.gov.tw"
   },
   {
     name: "TaDA Residency", loc: "Suisse", status: "closed",
@@ -1077,6 +1106,8 @@ const RESIDENCE_LINKS = {
   "AIR Taipei — dont le volet Treasure Hill Artist Village × Puppetry Art Center of Taipei (THAV × PACT)": "https://artres.moc.gov.tw/en/",
   "AIR Taipei × Puppetry Art Center (THAV × PACT)": "https://artres.moc.gov.tw/en/",
   "Artist-in-Residence Taipei (= AIR Taipei, donc THAV×PACT inclus)": "https://artres.moc.gov.tw/en/",
+  "Lìzé Puppet Art Colony": "https://lizepuppet.com.tw/",
+  "Tsung-Yeh Arts and Cultural Center": "https://tyart.tnc.gov.tw/",
   "Centre Textile d'Islande (Textilmiðstöð Íslands)": "https://www.textilmidstod.is/en",
   "SÍM Residency (Korpúlfsstaðir)": "https://www.icelandicartcenter.is/residencies/sim-residency-jorpulf",
   "Institut français × Cité internationale des arts": "https://www.institutfrancais.com/en/programme/residence-and-professional-mobility/residencies-institut-francais-x-cite-internationale",
