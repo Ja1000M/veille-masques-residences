@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veille résidences — Masques brodés · Cécile Kretschmar</title>
+<meta name="description" content="Répertoire de résidences artistiques, plateformes de repérage par zone (Japon, Corée, Taïwan, Hong Kong, Asie, Europe du Nord), grille de sélection et plan de veille pour le projet de masques brodés de Cécile Kretschmar.">
+<meta name="author" content="Cécile Kretschmar">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#1B1F2B">
+
+<!-- Open Graph / partage (Slack, réseaux sociaux) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Veille résidences — Masques brodés">
+<meta property="og:description" content="Plateformes de résidences par zone, répertoire des lieux identifiés, grille de sélection et plan de veille — projet de masques brodés de Cécile Kretschmar.">
+<meta property="og:locale" content="fr_FR">
+
+<!-- Twitter/X card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Veille résidences — Masques brodés">
+<meta name="twitter:description" content="Plateformes, répertoire, grille de sélection et veille pour le projet de masques brodés de Cécile Kretschmar.">
+
+<!-- Favicon : petit motif de point de broderie, en SVG inline -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%231B1F2B'/%3E%3Cg stroke='%23A9762E' stroke-width='7' stroke-linecap='round' fill='none'%3E%3Cpath d='M22 62 L42 30 L58 62 L78 30'/%3E%3C/g%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1F2B;
+    --ink-2:#262B3A;
+    --paper:#FAF7F0;
+    --paper-card:#FFFFFF;
+    --paper-2:#F1EBDC;
+    --text:#23262F;
+    --text-soft:#5B5A52;
+    --cream:#EDE7D9;
+    --gold:#A9762E;
+    --gold-deep:#8A5F22;
+    --gold-soft:#F1E3C6;
+    --jade:#3E6B5C;
+    --jade-soft:#DCEAE4;
+    --rust:#A34A32;
+    --rust-soft:#F4E1D8;
+    --grey:#6B6B63;
+    --grey-soft:#EAE6DA;
+    --line:#DED4B9;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:var(--gold-deep);}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  /* ---------- header / nav ---------- */
+  header.site{
+    background:var(--ink);
+    color:var(--cream);
+    padding:28px 32px 0 32px;
+  }
+  .header-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:16px;
+    max-width:1180px;
+    margin:0 auto;
+  }
+  .brand-eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    margin-bottom:6px;
+  }
+  header.site h1{
+    color:var(--cream);
+    font-size:30px;
+    line-height:1.15;
+    max-width:640px;
+  }
+  header.site p.sub{
+    color:#C9C4B4;
+    font-size:14.5px;
+    max-width:520px;
+    margin-top:10px;
+  }
+  nav.tabs{
+    max-width:1180px;
+    margin:22px auto 0 auto;
+    display:flex;
+    gap:4px;
+    border-bottom:1px solid #3A3F52;
+    overflow-x:auto;
+  }
+  nav.tabs button{
+    background:none;
+    border:none;
+    color:#B7B2A2;
+    font-family:'Inter',sans-serif;
+    font-size:14.5px;
+    font-weight:600;
+    padding:12px 18px;
+    cursor:pointer;
+    border-bottom:3px solid transparent;
+    white-space:nowrap;
+    transition:color .15s ease;
+  }
+  nav.tabs button:hover{ color:#EDE7D9; }
+  nav.tabs button.active{
+    color:var(--gold-soft);
+    border-bottom-color:var(--gold);
+  }
+
+  main{
+    max-width:1180px;
+    margin:0 auto;
+    padding:32px 32px 90px 32px;
+  }
+  .view{ display:none; }
+  .view.active{ display:block; }
+
+  /* ---------- page intro ---------- */
+  .page-lede{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    flex-wrap:wrap;
+    margin-bottom:22px;
+    padding-bottom:18px;
+    border-bottom:2px dashed var(--line);
+  }
+  .page-lede h2{ font-size:26px; }
+  .page-lede p{ color:var(--text-soft); font-size:14.5px; max-width:560px; margin-top:6px; }
+
+  /* ---------- search / filter bar ---------- */
+  .toolbar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:26px;
+  }
+  .toolbar input[type="search"]{
+    flex:1;
+    min-width:220px;
+    padding:11px 14px;
+    border:1.5px solid var(--line);
+    border-radius:var(--radius);
+    font-family:'Inter',sans-serif;
+    font-size:14.5px;
+    background:var(--paper-card);
+    color:var(--text);
+  }
+  .toolbar input[type="search"]:focus{ outline:2px solid var(--gold); outline-offset:1px; }
+  .chip{
+    border:1.5px solid var(--line);
+    background:var(--paper-card);
+    color:var(--text-soft);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    padding:9px 13px;
+    border-radius:999px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .chip.active{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--gold-soft);
+  }
+
+  /* ---------- region jump nav ---------- */
+  .region-nav-wrap{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:var(--paper);
+    padding:12px 0 14px 0;
+    margin-bottom:22px;
+    border-bottom:1px solid transparent;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .region-nav-wrap.stuck{
+    border-bottom-color:var(--line);
+    box-shadow:0 8px 14px -10px rgba(27,31,43,0.25);
+  }
+  .region-nav-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.1em;
+    color:var(--grey);
+    margin-bottom:8px;
+  }
+  .region-nav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .region-nav .region-link{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    text-decoration:none;
+    color:var(--gold-deep);
+    border:1px solid var(--gold);
+    padding:6px 11px 6px 12px;
+    border-radius:999px;
+    background:var(--gold-soft);
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    cursor:pointer;
+    transition:background .12s ease, color .12s ease, transform .12s ease;
+  }
+  .region-nav .region-link::after{
+    content:"↓";
+    font-size:10px;
+    opacity:0.65;
+  }
+  .region-nav .region-link:hover{ background:var(--gold); color:#fff; transform:translateY(-1px); }
+  .region-nav .region-link.active{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--gold-soft);
+  }
+  .region-nav .region-link.active::after{ content:"●"; font-size:7px; opacity:1; }
+
+  /* ---------- platform card ---------- */
+  .region-block{ margin-bottom:44px; scroll-margin-top:96px; }
+  .region-title{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--grey);
+    margin-bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .region-title::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:repeating-linear-gradient(90deg, var(--gold) 0 6px, transparent 6px 11px);
+  }
+
+  .platform{
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    margin-bottom:18px;
+    overflow:hidden;
+    scroll-margin-top:20px;
+  }
+  .platform-head{
+    background:var(--ink);
+    color:var(--cream);
+    padding:16px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .platform-head h3{
+    color:var(--cream);
+    font-size:18px;
+    font-weight:600;
+  }
+  .platform-head .zone{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:#B7B2A2;
+    margin-top:3px;
+  }
+  .platform-head a.visit{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--ink);
+    background:var(--gold-soft);
+    padding:7px 13px;
+    border-radius:6px;
+    text-decoration:none;
+    white-space:nowrap;
+    border:1px solid var(--gold-soft);
+  }
+  .platform-head a.visit:hover{ background:#fff; }
+
+  .platform-body{ padding:6px 0; }
+  .res-row{
+    display:grid;
+    grid-template-columns:230px 100px 1fr;
+    gap:18px;
+    padding:14px 20px;
+    border-top:1px solid var(--paper-2);
+    align-items:start;
+  }
+  .res-row:first-child{ border-top:none; }
+  .res-name{ font-weight:600; font-size:14.5px; }
+  a.res-link{
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1.5px solid var(--gold);
+    transition:color .12s ease, border-color .12s ease;
+  }
+  a.res-link:hover{ color:var(--gold-deep); border-color:var(--gold-deep); }
+  a.res-link .ext-ic{ font-size:0.8em; color:var(--gold-deep); }
+  .res-card-head h3 a.res-link{ border-bottom-width:2px; }
+  .orphan-row .name a.res-link{ color:var(--rust); border-color:var(--rust); }
+  .orphan-row .name a.res-link:hover{ color:#7A3B28; border-color:#7A3B28; }
+  .res-territory{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--text-soft); margin-top:3px;}
+  .res-note{ font-size:13.5px; color:var(--text-soft); }
+  .pill{
+    align-self:start;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    padding:4px 9px;
+    border-radius:999px;
+    white-space:nowrap;
+    display:inline-block;
+    font-weight:600;
+  }
+  .pill.found{ background:var(--jade-soft); color:var(--jade); }
+  .pill.excluded{ background:var(--rust-soft); color:var(--rust); }
+  .pill.neutral{ background:var(--grey-soft); color:var(--grey); }
+
+  /* orphan section */
+  .orphan-block{
+    background:var(--rust-soft);
+    border:1.5px solid var(--rust);
+    border-radius:var(--radius);
+    padding:20px 22px;
+    margin-top:6px;
+  }
+  .orphan-block h3{ color:var(--rust); font-size:18px; margin-bottom:4px;}
+  .orphan-block p.lede{ color:#7A3B28; font-size:13.5px; margin-bottom:14px; }
+  .orphan-row{
+    background:var(--paper-card);
+    border:1px solid #E7C7B7;
+    border-radius:8px;
+    padding:13px 16px;
+    margin-bottom:10px;
+  }
+  .orphan-row .name{ font-weight:600; font-size:14.5px; }
+  .orphan-row .territory{ font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--text-soft); margin:2px 0 6px 0; }
+  .orphan-row .why{ font-size:13.5px; color:var(--text-soft); }
+
+  /* ---------- résidences (répertoire) ---------- */
+  .res-card{
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    margin-bottom:16px;
+    overflow:hidden;
+  }
+  .res-card-head{
+    padding:16px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:14px;
+    flex-wrap:wrap;
+    border-bottom:1px solid var(--paper-2);
+  }
+  .res-card-head h3{ font-size:19px; }
+  .res-card-head .loc{ font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-soft); margin-top:4px;}
+  .status-pill{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    padding:5px 11px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .status-open{ background:var(--jade-soft); color:var(--jade); }
+  .status-watch{ background:var(--gold-soft); color:var(--gold-deep); }
+  .status-closed{ background:var(--grey-soft); color:var(--grey); }
+
+  .funding-pill{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    padding:5px 11px;
+    border-radius:999px;
+    white-space:nowrap;
+    border:1px solid transparent;
+  }
+  .funding-financee{ background:var(--jade-soft); color:var(--jade); border-color:var(--jade); }
+  .funding-payante{ background:var(--rust-soft); color:var(--rust); border-color:var(--rust); }
+  .funding-inconnue{ background:var(--grey-soft); color:var(--grey); border-color:var(--grey); }
+  .res-card-head .pills{ display:flex; gap:8px; flex-wrap:wrap; }
+
+  .res-card-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:0;
+  }
+  .res-field{
+    padding:14px 20px;
+    border-top:1px solid var(--paper-2);
+    border-left:1px solid var(--paper-2);
+  }
+  .res-field:nth-child(-n+2){ border-top:none; }
+  .res-field .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--grey);
+    margin-bottom:5px;
+  }
+  .res-field .val{ font-size:13.5px; color:var(--text); }
+
+  /* ---------- grille de sélection ---------- */
+  .crit-card{
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 20px;
+    margin-bottom:14px;
+  }
+  .crit-head{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:8px;}
+  .crit-head h3{ font-size:16.5px; }
+  .redhib{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    font-weight:600;
+    padding:4px 10px;
+    border-radius:999px;
+  }
+  .redhib.yes{ background:var(--rust-soft); color:var(--rust); }
+  .redhib.no{ background:var(--grey-soft); color:var(--grey); }
+  .crit-def{ font-size:13.5px; color:var(--text-soft); margin-bottom:8px; }
+  .crit-q{ font-size:13.5px; color:var(--text); font-style:italic; }
+
+  /* ---------- veille ---------- */
+  .kw-table{ width:100%; border-collapse:collapse; margin-bottom:30px;}
+  .kw-table th{
+    text-align:left;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--grey);
+    padding:10px 14px;
+    border-bottom:2px solid var(--line);
+  }
+  .kw-table td{
+    padding:12px 14px;
+    border-bottom:1px solid var(--paper-2);
+    font-size:13.5px;
+    vertical-align:top;
+  }
+  .kw-table tr:hover td{ background:var(--paper-2); }
+  .lang-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    background:var(--gold-soft);
+    color:var(--gold-deep);
+    padding:2px 8px;
+    border-radius:6px;
+  }
+  .method-list{ list-style:none; padding:0; margin:0;}
+  .method-list li{
+    display:flex;
+    gap:14px;
+    padding:14px 0;
+    border-top:1px solid var(--paper-2);
+    font-size:14px;
+  }
+  .method-list li:first-child{ border-top:none; }
+  .method-list .num{
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    color:var(--gold);
+    font-weight:600;
+    min-width:26px;
+  }
+
+  footer{
+    text-align:center;
+    padding:26px;
+    color:var(--grey);
+    font-size:12px;
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  .empty-msg{
+    padding:30px;
+    text-align:center;
+    color:var(--text-soft);
+    font-size:14px;
+    display:none;
+  }
+
+  @media (max-width:640px){
+    header.site{ padding:22px 18px 0 18px; }
+    main{ padding:24px 18px 70px 18px; }
+    .res-row{ grid-template-columns:1fr; }
+    .res-field:nth-child(-n+2){ border-top:1px solid var(--paper-2); }
+  }
+
+  /* ---------- alerte statut : nouveaux appels ouverts ---------- */
+  /* ---------- floating open-call alert bubble ---------- */
+  header.site{ position:relative; }
+  .status-alert{
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translate(-50%, 46%);
+    width:min(640px, calc(100% - 48px));
+    z-index:25;
+    background:var(--paper-card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    box-shadow:0 12px 30px rgba(20,18,12,0.28), 0 2px 8px rgba(20,18,12,0.14);
+    overflow:hidden;
+  }
+  .status-alert-inner{
+    padding:14px 16px 12px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .status-alert-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .status-alert-head-left{ display:flex; align-items:baseline; gap:9px; flex-wrap:wrap; }
+  .status-alert-icon{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    font-weight:700;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#fff;
+    background:var(--jade);
+    padding:4px 9px;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .status-alert-title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:14px;
+    color:var(--text);
+  }
+  .status-alert-date{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    color:var(--text-soft);
+    white-space:nowrap;
+  }
+  .status-alert-close{
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--text-soft);
+    padding:3px 6px;
+    border-radius:6px;
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .status-alert-close:hover{ background:var(--paper-2); color:var(--text); }
+  .status-alert-list{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+  }
+  .alert-item{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    padding:4px 2px;
+    border-radius:7px;
+    line-height:1.3;
+  }
+  .alert-item .dot{
+    width:7px; height:7px; border-radius:50%;
+    flex-shrink:0;
+    margin-bottom:1px;
+  }
+  .alert-item .name{ font-weight:600; white-space:nowrap; }
+  .alert-item .when{
+    font-family:'IBM Plex Mono',monospace;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  /* urgency scale — calm jade far out, warming to rust as the deadline nears */
+  .alert-item.level-calm{ background:transparent; }
+  .alert-item.level-calm .dot{ background:var(--jade); }
+  .alert-item.level-calm .name{ font-size:13px; color:var(--text); }
+  .alert-item.level-calm .when{ font-size:11.5px; color:var(--jade); }
+
+  .alert-item.level-soon{ background:rgba(169,118,46,0.08); }
+  .alert-item.level-soon .dot{ background:var(--gold); }
+  .alert-item.level-soon .name{ font-size:13px; color:var(--text); }
+  .alert-item.level-soon .when{ font-size:11.5px; font-weight:600; color:var(--gold-deep); }
+
+  .alert-item.level-urgent{ background:rgba(163,74,50,0.1); }
+  .alert-item.level-urgent .dot{ background:var(--rust); box-shadow:0 0 0 3px rgba(163,74,50,0.18); }
+  .alert-item.level-urgent .name{ font-size:13.5px; font-weight:700; color:#7A3B28; }
+  .alert-item.level-urgent .when{ font-size:12px; font-weight:700; color:var(--rust); }
+  .status-alert.is-empty{ box-shadow:0 8px 20px rgba(20,18,12,0.16), 0 1px 4px rgba(20,18,12,0.1); }
+  .status-alert.is-empty .status-alert-icon{ background:var(--grey); }
+  .alert-empty{ font-size:12.5px; color:var(--text-soft); line-height:1.4; padding:2px 2px 4px 2px; }
+  @media (max-width:640px){
+    .status-alert{ transform:translate(-50%, 30%); }
+    .alert-item{ flex-wrap:wrap; }
+    .alert-item .name{ white-space:normal; }
+    .alert-item .when{ white-space:normal; overflow:visible; text-overflow:clip; margin-left:15px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-top">
+    <div>
+      <div class="brand-eyebrow">Cécile Kretschmar — projet masques brodés</div>
+      <h1>Veille résidences &amp; plateformes</h1>
+      <p class="sub">Outil de repérage tenu à jour : plateformes de résidences par zone, répertoire des lieux identifiés, grille de sélection et plan de veille.</p>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button data-view="plateformes" class="active">Plateformes</button>
+    <button data-view="residences">Répertoire résidences</button>
+    <button data-view="grille">Grille de sélection</button>
+    <button data-view="veille">Veille</button>
+  </nav>
+
+  <div class="status-alert" id="status-alert" style="display:none;">
+    <div class="status-alert-inner">
+      <div class="status-alert-head">
+        <div class="status-alert-head-left">
+          <span class="status-alert-icon" id="status-alert-icon">Open call</span>
+          <span class="status-alert-title" id="status-alert-title">Résidences passées en appel ouvert</span>
+        </div>
+        <button type="button" class="status-alert-close" id="status-alert-close">Masquer ✕</button>
+      </div>
+      <div class="status-alert-date" id="status-alert-date"></div>
+      <div class="status-alert-list" id="status-alert-list"></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= VUE 1 : PLATEFORMES (accueil) ================= -->
+  <section class="view active" id="view-plateformes">
+    <div class="page-lede">
+      <div>
+        <h2>Plateformes, classées par zone</h2>
+        <p>Chaque bandeau est une plateforme de repérage. En dessous : les résidences du projet retrouvées dessus, avec leur statut. Tout en bas : les résidences introuvables sur ces plateformes.</p>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="platform-search" placeholder="Rechercher une plateforme ou une résidence…">
+    </div>
+
+    <div class="region-nav-wrap" id="region-nav-wrap">
+      <div class="region-nav-label">Aller directement à →</div>
+      <div class="region-nav" id="region-nav"></div>
+    </div>
+
+    <div id="platforms-root"></div>
+  </section>
+
+  <!-- ================= VUE 2 : RÉPERTOIRE RÉSIDENCES ================= -->
+  <section class="view" id="view-residences">
+    <div class="page-lede">
+      <div>
+        <h2>Répertoire de résidences</h2>
+        <p>Statuts vérifiés mi-2026 sauf mention contraire. Toujours reconfirmer sur le site source avant candidature.</p>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="res-search" placeholder="Rechercher une résidence, un territoire, un axe…">
+      <button class="chip active" data-status="all">Toutes</button>
+      <button class="chip" data-status="open">Ouvert</button>
+      <button class="chip" data-status="watch">À surveiller</button>
+      <button class="chip" data-status="closed">Fermé / recherche à approfondir</button>
+    </div>
+
+    <div id="residences-root"></div>
+    <p class="empty-msg" id="res-empty">Aucune résidence ne correspond à cette recherche.</p>
+  </section>
+
+  <!-- ================= VUE 3 : GRILLE DE SÉLECTION ================= -->
+  <section class="view" id="view-grille">
+    <div class="page-lede">
+      <div>
+        <h2>Grille de sélection</h2>
+        <p>À dupliquer par résidence candidate. Notation 0–3 par critère (0 = absent/rédhibitoire, 3 = pleinement rempli). Le total sur 27 reste indicatif, pas un couperet absolu.</p>
+      </div>
+    </div>
+    <div id="grille-root"></div>
+  </section>
+
+  <!-- ================= VUE 4 : VEILLE ================= -->
+  <section class="view" id="view-veille">
+    <div class="page-lede">
+      <div>
+        <h2>Plan de veille</h2>
+        <p>Mots-clés d'alerte, plateformes à consulter et méthode de mise en place.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;margin-bottom:12px;">Mots-clés pour alertes Google</h3>
+    <table class="kw-table">
+      <thead><tr><th>Requête suggérée</th><th>Objectif</th><th>Langue</th></tr></thead>
+      <tbody id="kw-body"></tbody>
+    </table>
+
+    <h3 style="font-size:16px;margin-bottom:12px;">Méthode de mise en place</h3>
+    <ol class="method-list" id="method-root"></ol>
+  </section>
+
+</main>
+
+<footer>Document de travail — mis à jour à chaque session de veille · projet masques brodés</footer>
+
+<script>
+/* ============================================================
+   DATA
+   ============================================================ */
+
+const PLATFORM_DATA = [
+  {
+    region: "Réseau français",
+    id: "reseau-francais",
+    platforms: [
+      {
+        name: "VILLÆ — réseau diplomatique et culturel français (Institut français)",
+        zone: "France + réseau mondial",
+        link: "https://www.institutfrancais.com/fr/programme/aide-projet/villae-residences-artistiques-du-reseau-diplomatique-culturel-francais",
+        residencies: [
+          ["Villa Kujoyama", "Japon", "found", "Fermé — réouverture 2027. Existe indépendamment d'AIR_J mais y est aussi référencée (double présence, voir section Japon)."],
+          ["Villa Cheongju", "Corée du Sud", "found", "Fermé depuis avril 2026 — cycle annuel. N'apparaît pas dans le répertoire coréen TheArtro, mais suivie via VILLÆ (réseau France) — pas une orpheline."],
+          ["Villa Hanbul / Hongti Art Center Busan", "Corée du Sud", "found", "À reconfirmer pour 2027. Porté par l'ambassade de France — explicitement exclu de la propre veille de TheArtro, mais suivi via VILLÆ (réseau France) — pas une orpheline."],
+          ["Villa Formose", "Taïwan", "found", "Identifiée ouverte — à reconfirmer. Non retrouvée sur ARNT, le répertoire officiel taïwanais, mais suivie via VILLÆ (réseau France) — pas une orpheline."],
+          ["Yi Tong", "Chine", "found", "Identifiée ouverte — à reconfirmer. Aucune plateforme chinoise officielle équivalente à AIR_J identifiée à ce jour, mais suivie via VILLÆ (réseau France) — pas une orpheline."],
+          ["Institut français × Cité internationale des arts", "Paris, France", "found", "Ouvert — clôture 8 oct. 2026. Candidature obligatoirement portée par un partenaire culturel."],
+          ["Résidence Échos", "Chili", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026) — l'un des 18 appels officiels du réseau. Programme large (arts visuels, architecture, design/métiers d'art, spectacle vivant...), hors périmètre territorial actuel du projet."],
+          ["Villa Swagatam", "Inde", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026) — l'un des 18 appels officiels du réseau. Littérature, arts, artisanat — savoir-faire Inde/Asie du Sud."],
+          ["Résidences EXTRA", "Belgique", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026 + page be.diplomatie.gouv.fr) — 4 volets (arts visuels Anvers/WIELS, numérique, jeu vidéo). Pas de focale masque identifiée, gardée en veille passive."],
+          ["Route des Résidences", "Cambodge / Thaïlande", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026 + ifcambodge.com) — arts visuels/photographie. Pas de focale masque identifiée à ce stade."],
+          ["Villa CreaColombia", "Colombie", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026 + ifcolombie.fr) — arts visuels, disciplines variées à recroiser si le projet s'ouvre à l'Amérique du Sud."],
+          ["Villa Bucheon", "Corée du Sud", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026) — arts graphiques, même ambassade/calendrier que Villa Busan et Villa Cheongju déjà suivies."],
+          ["Résidences MORPHO", "Costa Rica", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026 + alianzafrancesacostarica.com) — arts visuels/art sonore, thème écologie/durabilité, pas de lien masque identifié."],
+          ["Ateliers du Nil — Bayt Yakan", "Égypte (Le Caire)", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026 + ifegypte.com) — métiers d'art/architecture/patrimoine, terrain matière intéressant pour l'axe artisanat du projet."],
+          ["Artist Designer in Residence (ADIR)", "Indonésie (Bali)", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026 + ifi-id.com) — design. Pas de lien masque officiel dans le programme, mais tradition du théâtre masqué topeng à Bali à creuser indépendamment."],
+          ["Résidence XR Farnese–Médicis", "Italie (Rome)", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026) — réalité virtuelle/création immersive, hors du champ matière/broderie du projet."],
+          ["Villa Antipode", "Nouvelle-Zélande", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026 + villa-antipode.org) — arts visuels contemporains, hors zones prioritaires du projet."],
+          ["Septentrionales", "Danemark, Norvège, Suède, Finlande", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026) — toutes disciplines, élargit la piste nordique « flou/brume » déjà ouverte avec l'Islande."],
+          ["Magnetic 5", "Royaume-Uni", "found", "CONFIRMÉ (communiqué réseau 5 mars 2026 + fluxusartprojects.com) — arts visuels pour artistes professionnels confirmés, pas de lien masque identifié."],
+          ["Programme de résidences croisées — Ambassade de France à Singapour × National Arts Council", "Singapour", "found", "CONFIRMÉ (guide officiel NAC/Ambassade de France, nac.gov.sg) — programme bilatéral officiel, mentionne explicitement les « résidences en arts du spectacle » comme exemple. Fonctionne par appel ouvert ou invitation directe, pas de fenêtre de dépôt publique permanente."],
+          ["Programme de résidences du Centre culturel franco-mozambicain (CCFM)", "Mozambique (Maputo)", "found", "CONFIRMÉ (institutfrancais.com/en/node/6186) — soutenu par l'Institut français dans le cadre de « La Fabrique des résidences ». Disciplines officielles : danse, arts de la rue, arts visuels — pertinent pour un volet arts vivants. Édition 2023 réservée aux artistes de La Réunion/Mozambique : à vérifier si une édition plus ouverte ressort pour 2027."]
+        ]
+      }
+    ]
+  },
+  {
+    region: "Japon",
+    id: "japon",
+    platforms: [
+      {
+        name: "AIR_J — base officielle Japan Foundation / Kyoto Art Center",
+        zone: "Japon, tout le pays",
+        link: "https://air-j.info/en/",
+        residencies: [
+          ["Villa Kujoyama", "Japon", "found", "CONFIRMÉ présent — fiche dédiée sur air-j.info/en/residence/villakujoyama. Vérifié directement : repérable même sans connaître le réseau Institut français."],
+        ],
+        note: "Aucune autre résidence du répertoire n'a été recherchée spécifiquement sur AIR_J (Yi Tong et Villa Formose ne sont pas japonaises). AIR_J référence par ailleurs des centaines d'autres résidences japonaises non encore explorées pour ce projet."
+      }
+    ]
+  },
+  {
+    region: "Taïwan",
+    id: "taiwan",
+    platforms: [
+      {
+        name: "ARNT — Arts Residency Network Taiwan (Ministère de la Culture)",
+        zone: "Taïwan",
+        link: "https://artres.moc.gov.tw/en/",
+        residencies: [
+          ["AIR Taipei — dont le volet Treasure Hill Artist Village × Puppetry Art Center of Taipei (THAV × PACT)", "Taïwan (Taipei)", "found", "CONFIRMÉ — appel annuel mars-juin. CORRECTION au répertoire précédent : « AIR Taipei × Puppetry Art Center » et « THAV × PACT » étaient listés comme deux résidences distinctes — c'est EN RÉALITÉ LA MÊME RÉSIDENCE. THAV×PACT est le nom exact du volet marionnette/masque au sein d'AIR Taipei : candidatures internationales, hébergement à Treasure Hill, représentations au Puppetry Art Center. Écosystème le plus directement apparenté au masque identifié à Taïwan."],
+          ["Lìzé Puppet Art Colony", "Wujie, Comté de Yilan", "found", "AJOUTÉ (août 2026) — premier lieu taïwanais dédié à la marionnette contemporaine, fondé 2014. Fiche ARNT dédiée + site propre lizepuppet.com.tw. Cette résidence était classée à tort comme « introuvable » dans une version antérieure du répertoire — corrigée."],
+          ["Tsung-Yeh Arts and Cultural Center", "Madou, Tainan", "found", "AJOUTÉ (août 2026) — ancienne raffinerie de sucre reconvertie, catégorie Craft. Ouvert, clôture 31 août 2026, thème 2027 « Site-Specific Art ». Pas de lien masque/marionnette direct identifié — gardé en veille passive."]
+        ],
+        note: "Villa Formose (programme franco-taïwanais) n'est pas retrouvée sur ARNT malgré une recherche dédiée — suivie via VILLÆ (réseau France), voir section « Réseau français »."
+      }
+    ]
+  },
+  {
+    region: "Corée du Sud",
+    id: "coree",
+    platforms: [
+      {
+        name: "TheArtro — plateforme officielle de l'art contemporain coréen (KAMS)",
+        zone: "Corée du Sud",
+        link: "https://www.theartro.kr/eng/main/main.asp",
+        residencies: [
+          ["MMCA Residency (Changdong / Goyang)", "Corée du Sud (Séoul / Gyeonggi)", "found", "CONFIRMÉ couvert — série d'articles TheArtro sur les résidences internationales en Corée. Institution la plus établie du pays."],
+          ["Seoul Art Space Geumcheon / Incheon Art Platform / Artist Residency TEMI (Daejeon)", "Corée du Sud (région capitale et régions)", "found", "CONFIRMÉ couverts — options publiques supplémentaires non explorées jusqu'ici, à évaluer si le talchum seul ne suffit pas à justifier la Corée."],
+          ["ACC_R Gwangju (Asia Culture Center × Rijksakademie) et Villa Hanbul / Hongti Art Center Busan", "Corée du Sud (Gwangju / Busan)", "excluded", "EXPLICITEMENT EXCLU par TheArtro elle-même : « due to the limited time for research… ACC-Rijksakademie… and Hongti Art Center Residency in Busan… were not able to be included ». Même la plateforme de référence coréenne ne les couvre pas — à contacter directement."]
+        ],
+        note: "Villa Cheongju (programme franco-coréen) n'apparaît dans aucun article TheArtro consulté — suivie via VILLÆ (réseau France), voir section « Réseau français »."
+      }
+    ]
+  },
+  {
+    region: "Hong Kong",
+    id: "hongkong",
+    platforms: [
+      {
+        name: "Hong Kong — pas de plateforme officielle unifiée identifiée",
+        zone: "Hong Kong",
+        link: "https://aaa.org.hk/en",
+        residencies: [
+          ["Constat structurel : aucun HKADC / AIR_J équivalent", "Hong Kong", "excluded", "Le Hong Kong Arts Development Council (HKADC) est l'organisme statutaire de financement des arts — pas une base de données de résidences comme AIR_J ou ARNT. Il attribue des subventions, il ne référence pas systématiquement les programmes de résidence."],
+          ["Para Site — page Résidences", "Hong Kong (Quarry Bay)", "found", "Le plus important centre d'art contemporain indépendant de Hong Kong. Gère ses propres résidences (para-site.art/residencies) mais ne référence pas les autres lieux hongkongais."],
+          ["Asia Art Archive (AAA)", "Hong Kong, portée documentaire sur toute l'Asie", "neutral", "Archive de recherche documentant l'histoire des lieux et collectifs (Cattle Depot, Oil Street…). Utile pour la recherche contextuelle, inutilisable pour repérer un appel ouvert."],
+          ["In-situ Residency", "Hong Kong (Kowloon, To Kwa Wan)", "found", "Résidence indépendante à candidatures ouvertes à l'année — insituresidency.com. Une résidence précise, pas une plateforme."],
+          ["Cattle Depot Artist Village / Oil Street (Oi!)", "Hong Kong", "neutral", "Espaces municipaux gérés par le Leisure and Cultural Services Department. Fonctionnement par location d'espace à long terme, pas par appel à candidature de résidence internationale."]
+        ]
+      }
+    ]
+  },
+  {
+    region: "Asie élargie",
+    id: "asie-elargie",
+    platforms: [
+      {
+        name: "Plateformes complémentaires — Asie du Sud-Est et réseaux transrégionaux",
+        zone: "Asie du Sud-Est + réseaux transrégionaux",
+        link: "https://resartis.org/asia-2/",
+        residencies: [
+          ["Res Artis — page régionale « Asia »", "Asie, tous pays", "found", "CONFIRMÉ — page dédiée listant fondations et réseaux de financement par pays (ex. Seoul Foundation for Arts and Culture, Pola Art Foundation Japon), en complément des plateformes de résidences elles-mêmes."],
+          ["Arts Network Asia (ANA)", "Asie, transrégional", "neutral", "Organisme de subvention pour collaborations artistiques régionales — finance la mobilité, ne liste pas de lieux."],
+          ["The Artling — Guide to Art Residencies in Southeast Asia", "Asie du Sud-Est", "neutral", "Compilation indépendante, éditée par une plateforme d'art commerciale singapourienne. Bonne entrée pour la piste Philippines/Moriones si les canaux institutionnels restent muets."],
+          ["Rimbun Dahan — Southeast Asian Arts Residency", "Malaisie", "found", "CONFIRMÉ actif, collection textile Malay. Réservée aux ressortissants ET résidents ASEAN — non éligible pour Cécile, mais signale un pôle textile malais à noter."],
+          ["Triangle Network", "Mondial, forte présence historique en Asie (Chine, Hong Kong, Inde, Pakistan…)", "neutral", "Réseau informel et ancien (1982) de résidences/ateliers d'artistes, indépendant des réseaux gouvernementaux."]
+        ]
+      }
+    ]
+  },
+  {
+    region: "Réseaux mondiaux",
+    id: "mondial",
+    platforms: [
+      {
+        name: "Res Artis + TransArtists",
+        zone: "Mondial, filtrable par pays",
+        link: "https://resartis.org/",
+        residencies: [
+          ["Artist-in-Residence Taipei (= AIR Taipei, donc THAV×PACT inclus)", "Taïwan", "found", "CONFIRMÉ — fiche dédiée. Confirme la centralité du programme : référencé à la fois par ARNT et Res Artis."],
+          ["MMCA Residency Changdong & Goyang", "Corée du Sud", "found", "CONFIRMÉ présent — recoupe TheArtro."],
+          ["Incheon Art Platform", "Corée du Sud", "found", "CONFIRMÉ présent — recoupe TheArtro."],
+          ["SÍM Residency, Skaftfell, NES, Centre Textile d'Islande", "Islande", "found", "Toutes déjà dans le répertoire principal, bien couvertes par ce réseau."],
+          ["IASPIS", "Suède", "found", "CONFIRMÉ présent — accès sur invitation uniquement, précisé par Res Artis."]
+        ]
+      }
+    ]
+  },
+  {
+    region: "Europe du Nord",
+    id: "europe-nord",
+    platforms: [
+      {
+        name: "Nordic Culture Point + Icelandic Art Center",
+        zone: "Europe du Nord",
+        link: "https://www.kulturkontaktnord.org/",
+        residencies: [
+          ["SÍM Residency, Skaftfell, NES, Centre Textile de Blönduós", "Islande", "found", "CONFIRMÉS présents — page officielle « Residencies in Iceland », recoupe Res Artis."],
+          ["IASPIS, Finnish Artists' Studio Foundation, OCA Norvège", "Suède, Finlande, Norvège", "found", "Couverts par leurs portails nationaux respectifs — chaque pays nordique a son propre point d'entrée plutôt qu'un guichet unique hors Islande."]
+        ]
+      }
+    ]
+  }
+];
+
+const ORPHANS = [
+  ["ACC_R Gwangju", "Corée du Sud", "Introuvable sur toute plateforme de veille identifiée à ce jour (explicitement exclue par TheArtro elle-même, absente de VILLÆ car hors réseau français) — à surveiller directement sur acc.go.kr."],
+  ["TaDA Residency", "Suisse", "Introuvable sur toute plateforme de veille identifiée à ce jour — programme indépendant suisse, à suivre directement sur son propre site."],
+  ["Résidences Philippines (axe 6, Moriones / possession)", "Philippines", "Aucune plateforme nationale ou régionale équivalente identifiée — gap le plus important du répertoire. À chercher via CCP (Cultural Center of the Philippines) ou NCCA directement."]
+];
+
+const RESIDENCES = [
+  {
+    name: "Villa Kujoyama", loc: "Kyoto, Japon", status: "closed",
+    statusLabel: "Fermé — réouverture 2027",
+    axe: "Nô — axes 1 & 2 (masque-potentiel, terasu/kumorasu)",
+    reseau: "Institut français du Japon / VILLÆ",
+    echeance: "Dépôt habituel janv.–mars pour la cohorte suivante (à reconfirmer)",
+    duree: "~6 mois (variable)",
+    prise: "Bourse + logement (mécénat Fondation Bettencourt Schueller)",
+    financement: "financee",
+    ecosysteme: "Écoles de nô, artisans du masque (nômen-shi), réseau Institut français au Japon",
+    atelier: "À vérifier — accès atelier nômen-shi non garanti d'office",
+    justif: "Terrain le plus balisé théoriquement dans les notes de travail — point de départ du projet",
+    lien: "ifprog.emundus.fr"
+  },
+  {
+    name: "Villa Cheongju", loc: "Cheongju, Corée du Sud", status: "closed",
+    statusLabel: "Fermé depuis avril 2026 — cycle annuel",
+    axe: "Talchum (axe 5) + savoir-faire métiers d'art coréens",
+    reseau: "Institut français de Corée / VILLÆ",
+    echeance: "CONFIRMÉ (communiqué réseau 5 mars 2026) : discipline officielle « Métiers d'art ». Cycle 2026 : dépôt 23 mars-17 avril. Fenêtre 2027 à surveiller au même moment.",
+    duree: "À reconfirmer (souvent 2-3 mois)",
+    prise: "À reconfirmer",
+    financement: "inconnue",
+    ecosysteme: "Cheongju Craft Biennale, réseau métiers d'art coréens",
+    atelier: "Ateliers métiers d'art sur site",
+    justif: "Corée = talchum, mais aussi écoles de broderie (Séoul) à activer en parallèle",
+    lien: "institutfrancais.com/kr"
+  },
+  {
+    name: "Villa Hanbul — Hongti Art Center (= Villa Busan)", loc: "Busan, Corée du Sud", status: "watch",
+    statusLabel: "À reconfirmer pour 2027 — cycle 2026 : 23 mars-17 avril",
+    axe: "Talchum (axe 5) ; possibilité broderie via Séoul en amont/aval",
+    reseau: "Ambassade de France en Corée / VILLÆ",
+    echeance: "CONFIRMÉ (août 2026) : « Villa Busan » est le nom officiel de ce même lieu (Villa Hanbul / Hongti Art Center) — pas une résidence distincte. Cycle 2026 : dépôt 23 mars-17 avril, discipline officielle « arts visuels ». Fenêtre 2027 à surveiller au même moment.",
+    duree: "3 mois",
+    prise: "Allocation 2000€ + billets + logement",
+    financement: "financee",
+    ecosysteme: "Hongti Art Center (exposition de restitution en fin de résidence)",
+    atelier: "Atelier au sein du centre d'art",
+    justif: "Diplôme d'école d'art + 5 ans de pratique + anglais/coréen requis — à vérifier compatibilité avec le profil de Cécile",
+    lien: "kr.ambafrance-culture.org"
+  },
+  {
+    name: "Villa Formose", loc: "Taïwan", status: "watch",
+    statusLabel: "Identifiée ouverte — à reconfirmer",
+    axe: "Bianlian / lianpu (axes 3-4) — recherche",
+    reseau: "Institut français de Taïwan / VILLÆ",
+    echeance: "À reconfirmer",
+    duree: "1 mois",
+    prise: "À reconfirmer",
+    financement: "inconnue",
+    ecosysteme: "Écosystème métiers d'art et opéra taïwanais",
+    atelier: "Résidence orientée recherche plutôt que production lourde",
+    justif: "Durée courte (1 mois) : compatible avec repérage/tests, pas avec un objet-témoin abouti — à combiner avec une 2e étape",
+    lien: "institutfrancais-taiwan.org"
+  },
+  {
+    name: "Yi Tong", loc: "Chine", status: "watch",
+    statusLabel: "Identifiée ouverte — à reconfirmer",
+    axe: "Bianlian / lianpu (axes 3-4)",
+    reseau: "Institut français de Chine / VILLÆ",
+    echeance: "À reconfirmer",
+    duree: "À reconfirmer",
+    prise: "À reconfirmer",
+    financement: "inconnue",
+    ecosysteme: "Artisans bianlian, opéra de Pékin",
+    atelier: "À reconfirmer",
+    justif: "Chine = deux traditions distinctes (bianlian / lianpu) à traiter séparément",
+    lien: "institutfrancais-chine.com"
+  },
+  {
+    name: "ACC_R — Asia Culture Center", loc: "Gwangju, Corée du Sud", status: "watch",
+    statusLabel: "Financement substantiel signalé, à reconfirmer",
+    axe: "Talchum (axe 5) ; arts vivants au sens large",
+    reseau: "Hors réseau français — institution coréenne directe",
+    echeance: "À reconfirmer sur site ACC",
+    duree: "À reconfirmer",
+    prise: "Financement de production important (hors réseau IF)",
+    financement: "financee",
+    ecosysteme: "Grand centre d'arts vivants, pluridisciplinaire",
+    atelier: "Moyens de production notables — pertinent si captation vidéo/performance",
+    justif: "Sort du seul réseau Institut français, élargit la focale coréenne au-delà du talchum",
+    lien: "acc.go.kr"
+  },
+  {
+    name: "AIR Taipei × Puppetry Art Center (THAV × PACT)", loc: "Taipei, Taïwan", status: "closed",
+    statusLabel: "Fermé depuis juin 2026 — cycle annuel",
+    axe: "Bianlian + résonance marionnette/masque",
+    reseau: "Taipei Culture Foundation / ARNT",
+    echeance: "Réouverture probable printemps 2027 (appel habituel mars-juin)",
+    duree: "À reconfirmer",
+    prise: "À reconfirmer",
+    financement: "inconnue",
+    ecosysteme: "Puppetry Art Center — communauté marionnettistes/masques taïwanais",
+    atelier: "Hébergement Treasure Hill Artist Village, représentations au Puppetry Art Center",
+    justif: "Écosystème le plus directement apparenté au masque identifié à Taïwan — confirmé présent sur ARNT et Res Artis",
+    lien: "artres.moc.gov.tw"
+  },
+  {
+    name: "Lìzé Puppet Art Colony", loc: "Wujie, Comté de Yilan, Taïwan", status: "watch",
+    statusLabel: "À reconfirmer — pas d'appel identifié à ce jour",
+    axe: "Marionnette contemporaine — résonance directe avec l'axe masque/objet manipulé (axe 7)",
+    reseau: "Indépendant, fondé 2014 — premier lieu taïwanais dédié à la marionnette contemporaine",
+    echeance: "Appels ponctuels (ex. programme 2024) — à surveiller sur artres.moc.gov.tw et lizepuppet.com.tw",
+    duree: "À reconfirmer",
+    prise: "À reconfirmer",
+    financement: "inconnue",
+    ecosysteme: "Atelier bois, zone de fabrication de marionnettes, atelier couture, mini-musée de la marionnette ; deux festivals annuels (Open Day, Open Lab)",
+    atelier: "Studio partagé (69 m² espace de répétition + 29 m² atelier créatif), 4 postes de résident",
+    justif: "CORRECTION (août 2026) : contrairement au répertoire précédent, cette résidence EST référencée sur ARNT — retirée de la liste des « introuvables », désormais à suivre ici comme les autres",
+    lien: "artres.moc.gov.tw"
+  },
+  {
+    name: "Tsung-Yeh Arts and Cultural Center", loc: "Madou, Tainan, Taïwan", status: "open",
+    statusLabel: "Ouvert — clôture 31 août 2026",
+    axe: "Craft / arts visuels — pas de focale masque/marionnette explicite, à évaluer comme terrain matériel complémentaire",
+    reseau: "Indépendant (ancienne raffinerie de sucre reconvertie), fondé 2001 — référencé sur ARNT",
+    echeance: "Clôture 31 août 2026 — thème 2027 : « Site-Specific Art » (hydrologie, écologie et patrimoine de Tainan)",
+    duree: "À reconfirmer",
+    prise: "À reconfirmer",
+    financement: "inconnue",
+    ecosysteme: "Site de raffinerie de sucre reconverti, dortoir d'artistes (8 suites privées + cuisine partagée)",
+    atelier: "5 postes de résidence, studios ~65 m² convertis d'anciennes salles de classe",
+    justif: "Pas de lien masque direct identifié — à garder en veille passive comme terrain craft/matière si le thème 2027 s'y prête",
+    lien: "tyart.tnc.gov.tw"
+  },
+  {
+    name: "TaDA Residency", loc: "Suisse", status: "closed",
+    statusLabel: "Deadline passée mi-2026 — cycle à confirmer",
+    axe: "Textile — recherche matière, hors territoire Asie",
+    reseau: "TaDA (indépendant, focus textile)",
+    echeance: "À reconfirmer",
+    duree: "À reconfirmer",
+    prise: "Seule résidence payante hors réseau français identifiée mi-2026",
+    financement: "payante",
+    ecosysteme: "Communauté textile suisse",
+    atelier: "Atelier textile dédié",
+    justif: "Ne relève pas d'un axe territorial mais complète l'approche matérielle",
+    lien: "à reconfirmer"
+  },
+  {
+    name: "Centre Textile d'Islande (Textilmiðstöð Íslands)", loc: "Blönduós, Islande", status: "open",
+    statusLabel: "Ouvert — candidatures en continu",
+    axe: "Piste ouverte « flou / brume » — matière textile pure",
+    reseau: "Indépendant (fondé 2005)",
+    echeance: "Candidatures examinées en continu",
+    duree: "Variable, séjours courts à moyens",
+    prise: "Payant en principe — vérifier bourses complémentaires",
+    financement: "payante",
+    ecosysteme: "Communauté textile internationale, ville historiquement liée à la laine",
+    atelier: "Teinture, métiers à tisser (Tc2), feutre, tricot numérique, découpe laser — le plus complet identifié",
+    justif: "Pas de justification « masque » a priori — à construire autour de la brume/lumière nordique",
+    lien: "resartis.org"
+  },
+  {
+    name: "SÍM Residency (Korpúlfsstaðir)", loc: "Reykjavik, Islande", status: "open",
+    statusLabel: "Ouvert — vérifier fenêtres d'appel",
+    axe: "Piste « flou / brume »",
+    reseau: "SÍM — Association des artistes visuels islandais",
+    echeance: "À reconfirmer",
+    duree: "Variable",
+    prise: "Atelier textile inclus dans les ~70 studios",
+    financement: "inconnue",
+    ecosysteme: "Communauté d'artistes visuels internationale à Reykjavik",
+    atelier: "Atelier textile dédié sur site",
+    justif: "Alternative urbaine au Centre Textile de Blönduós — probablement moins spécialisée matière",
+    lien: "icelandicartcenter.is"
+  },
+  {
+    name: "Institut français × Cité internationale des arts", loc: "Paris, France", status: "open", deadlineISO: "2026-10-08",
+    statusLabel: "Ouvert — clôture 8 oct. 2026",
+    axe: "Non territorial — retour réflexif / mise en réseau française",
+    reseau: "Institut français / Cité internationale des arts",
+    echeance: "Clôture 8 octobre 2026, 23h59 CET",
+    duree: "3, 6 ou 9 mois",
+    prise: "Atelier-logement gratuit ; allocation min. 700€/mois + voyage à charge d'un partenaire culturel",
+    financement: "financee",
+    ecosysteme: "Scène parisienne, réseau Institut français, autres résidents internationaux",
+    atelier: "Atelier-logement sur place, pas d'atelier textile spécialisé",
+    justif: "Condition bloquante : candidature obligatoirement portée par un partenaire culturel",
+    lien: "ifprog.emundus.fr"
+  },
+  {
+    name: "Résidence Échos", loc: "Chili", status: "watch",
+    statusLabel: "Cycle annuel — hors périmètre actuel",
+    axe: "Programme pluridisciplinaire large (arts visuels, architecture, design et métiers d'art, spectacle vivant, musique, cinéma, numérique) — pas de focale masque/théâtre dédiée",
+    reseau: "Institut français du Chili / VILLÆ",
+    echeance: "Cycle 2026 : dépôt jusqu'au 27 mars, séjour entre le 15 juin et le 30 novembre 2026 (1 mois). Fenêtre 2027 à surveiller au même moment.",
+    duree: "1 mois",
+    prise: "Bourse de résidence",
+    financement: "financee",
+    ecosysteme: "À documenter",
+    atelier: "À documenter",
+    justif: "Discipline « spectacle vivant » présente dans le programme large — pertinence pour un volet théâtre/masque à évaluer si le projet s'ouvre à l'Amérique latine",
+    lien: "institutfrancais.com"
+  },
+  {
+    name: "Villa Swagatam", loc: "Inde", status: "watch",
+    statusLabel: "Cycle annuel — hors périmètre actuel",
+    axe: "Signalée pour mémoire — savoir-faire artisanaux",
+    reseau: "Institut français d'Inde / VILLÆ",
+    echeance: "Candidatures 17 avril–31 mai 2026",
+    duree: "À reconfirmer",
+    prise: "À documenter",
+    financement: "inconnue",
+    ecosysteme: "Réseau savoir-faire artisanaux Inde / Asie du Sud",
+    atelier: "À documenter",
+    justif: "Accent littérature et savoir-faire artisanaux — pertinence à évaluer si le projet s'ouvre à l'Inde",
+    lien: "institutfrancais.com"
+  },
+  {
+    name: "Résidences EXTRA", loc: "Belgique (Anvers / Bruxelles) + volet croisé France (Bourges, Arles)", status: "watch",
+    statusLabel: "AJOUTÉ (août 2026) — cycle 2026 clos (dépôt début mars-fin avril), fenêtre 2027 à surveiller",
+    axe: "Non territorial — programme réseau France, plusieurs volets (arts visuels à Anvers/WIELS, arts numériques, jeu vidéo) — pas de focale masque",
+    reseau: "Ambassade de France en Belgique — Fonds France-Belgique / Wallonie-Bruxelles International",
+    echeance: "Cycle 2026 : dépôt de mi-mars à fin avril. 4 volets aux dates propres (ex. Anvers 1er sept.-31 oct. 2026 ; WIELS janv.-juin 2027). Fenêtre 2027 à surveiller au même moment.",
+    duree: "1 à 6 mois selon le volet",
+    prise: "À reconfirmer par volet — porté par le Fonds France-Belgique et Wallonie-Bruxelles International",
+    financement: "inconnue",
+    ecosysteme: "Morpho (Anvers), WIELS (Bruxelles), iMAL, Antre-Peaux (Bourges), Games.brussels, Octobre Numérique (Arles)",
+    atelier: "Dépend du volet retenu",
+    justif: "Discipline arts visuels/numérique dominante, pas de porte d'entrée masque/théâtre identifiée — à garder en veille passive",
+    lien: "be.diplomatie.gouv.fr"
+  },
+  {
+    name: "Route des Résidences", loc: "Cambodge (Phnom Penh, Siem Reap) + Thaïlande (Bangkok, Chiang Mai)", status: "watch",
+    statusLabel: "AJOUTÉ (août 2026) — cycle 2026 clos (dépôt 15 fév.-15 mars), fenêtre 2027 à surveiller",
+    axe: "Non territorial — arts visuels/photographie, pas de focale masque identifiée pour l'instant",
+    reseau: "Institut français du Cambodge",
+    echeance: "Cycle 2026 : dépôt 15 février-15 mars, séjour août-novembre 2026. Fenêtre 2027 à surveiller au même moment.",
+    duree: "À reconfirmer",
+    prise: "À reconfirmer — réseau Institut français",
+    financement: "inconnue",
+    ecosysteme: "Réseau Institut français Cambodge/Thaïlande/Vietnam",
+    atelier: "À reconfirmer",
+    justif: "Arts visuels/photographie — pas de lien masque/théâtre a priori, à garder en veille passive sauf si un volet arts vivants apparaît",
+    lien: "ifcambodge.com"
+  },
+  {
+    name: "Villa CreaColombia", loc: "Colombie (Bogotá, Medellín, Cali, Barranquilla)", status: "watch",
+    statusLabel: "AJOUTÉ (août 2026) — cycle 2026 clos (dépôt 3 mars-12 avril), fenêtre 2027 à surveiller",
+    axe: "Non territorial — arts visuels et disciplines variées",
+    reseau: "Institut français de Colombie",
+    echeance: "Cycle 2026 : dépôt 3 mars-12 avril. Fenêtre 2027 à surveiller au même moment.",
+    duree: "À reconfirmer",
+    prise: "À reconfirmer — réseau Institut français",
+    financement: "inconnue",
+    ecosysteme: "Scènes artistiques de plusieurs villes colombiennes selon l'édition",
+    atelier: "À reconfirmer",
+    justif: "Disciplines variées non précisées au-delà des arts visuels — à recroiser avec un axe masque/objet manipulé si le projet s'ouvre à l'Amérique du Sud",
+    lien: "ifcolombie.fr"
+  },
+  {
+    name: "Villa Bucheon", loc: "Bucheon, Corée du Sud", status: "watch",
+    statusLabel: "AJOUTÉ (août 2026) — cycle 2026 clos (dépôt 2-23 mars), fenêtre 2027 à surveiller",
+    axe: "Arts graphiques — proche du réseau Villa Hanbul/Busan et Villa Cheongju (mêmes ambassade et calendrier)",
+    reseau: "Ambassade de France en Corée",
+    echeance: "Cycle 2026 : dépôt 2-23 mars, séjour à partir de juin 2026. Fenêtre 2027 à surveiller au même moment.",
+    duree: "À reconfirmer",
+    prise: "À reconfirmer — réseau ambassade de France en Corée",
+    financement: "inconnue",
+    ecosysteme: "Bucheon accueille aussi le festival international du film d'animation — écosystème image/graphisme fort",
+    atelier: "À reconfirmer",
+    justif: "Arts graphiques : proximité possible avec le travail de dessin préparatoire du masque, à évaluer — même réseau ambassade que Busan/Cheongju déjà suivis",
+    lien: "kr.ambafrance-culture.org"
+  },
+  {
+    name: "Résidences MORPHO", loc: "San José, Costa Rica", status: "watch",
+    statusLabel: "AJOUTÉ (août 2026) — cycle 2026 clos (dépôt mars-mai), fenêtre 2027 à surveiller",
+    axe: "Arts visuels et art sonore, thématique écologie/durabilité — pas de focale masque",
+    reseau: "Alliance française du Costa Rica / plateforme curatoriale Dos Mares (Marseille) / IIArte (Université du Costa Rica)",
+    echeance: "Cycle 2026 : dépôt mars-mai, séjour août-novembre 2026 (3 mois). Fenêtre 2027 à surveiller au même moment.",
+    duree: "3 mois",
+    prise: "Soutien de la plateforme Dos Mares et de l'IIArte — modalités précises à reconfirmer",
+    financement: "inconnue",
+    ecosysteme: "Scène artistique de San José, université du Costa Rica",
+    atelier: "À reconfirmer",
+    justif: "Thème écologie/durabilité, pas de lien masque identifié — à garder en veille passive",
+    lien: "alianzafrancesacostarica.com"
+  },
+  {
+    name: "Ateliers du Nil — Bayt Yakan", loc: "Le Caire, Égypte", status: "watch",
+    statusLabel: "AJOUTÉ (août 2026) — cycle 2026 clos (dépôt 18 fév.-5 mars), fenêtre 2027 à surveiller",
+    axe: "Métiers d'art, architecture, patrimoine — terrain matière/artisanat pertinent pour l'approche matérielle du projet",
+    reseau: "Institut français d'Égypte",
+    echeance: "Cycle 2026 : dépôt 18 février-5 mars. Fenêtre 2027 à surveiller au même moment.",
+    duree: "À reconfirmer",
+    prise: "À reconfirmer — réseau Institut français",
+    financement: "inconnue",
+    ecosysteme: "Bayt Yakan, maison historique du Caire réhabilitée en lieu de création",
+    atelier: "À reconfirmer",
+    justif: "Métiers d'art + patrimoine : terrain matière intéressant en écho à l'axe artisanat/matière du projet, sans lien masque direct identifié",
+    lien: "ifegypte.com"
+  },
+  {
+    name: "Artist Designer in Residence (ADIR)", loc: "Bali, Indonésie", status: "watch",
+    statusLabel: "AJOUTÉ (août 2026) — cycle 2026-2027 clos (dépôt 9 mars-17 mai), fenêtre 2027-2028 à surveiller",
+    axe: "Design — pas de focale masque directe, mais Bali a une tradition masque (topeng) à investiguer localement",
+    reseau: "Institut français d'Indonésie",
+    echeance: "Cycle 2026-2027 : dépôt 9 mars-17 mai, séjour mi-août-mi-septembre 2026. Fenêtre suivante à surveiller.",
+    duree: "1 mois environ",
+    prise: "À reconfirmer — réseau Institut français",
+    financement: "inconnue",
+    ecosysteme: "Scène design balinaise, galerie Cush Cush",
+    atelier: "À reconfirmer",
+    justif: "Discipline design, pas de lien masque officiel dans le programme — mais terrain balinais (théâtre masqué topeng) à creuser indépendamment de cette résidence",
+    lien: "ifi-id.com"
+  },
+  {
+    name: "Résidence XR Farnese–Médicis", loc: "Rome, Italie", status: "watch",
+    statusLabel: "AJOUTÉ (août 2026) — cycle 2026 clos (dépôt mi-fév.-17 mars), fenêtre 2027 à surveiller",
+    axe: "Réalité virtuelle, création immersive — pas de focale masque/artisanat",
+    reseau: "Institut français d'Italie / Villa Médicis",
+    echeance: "Cycle 2026 : dépôt mi-février-17 mars, résidence d'un an. Fenêtre 2027 à surveiller au même moment.",
+    duree: "1 an",
+    prise: "À reconfirmer — réseau Institut français / Villa Médicis",
+    financement: "inconnue",
+    ecosysteme: "Académie de France à Rome (Villa Médicis)",
+    atelier: "À reconfirmer",
+    justif: "Discipline XR/immersif — hors du champ matière/broderie du projet, gardée en veille passive",
+    lien: "institutfrancais.it"
+  },
+  {
+    name: "Villa Antipode", loc: "Nouvelle-Zélande", status: "watch",
+    statusLabel: "AJOUTÉ (août 2026) — cycle 2026 clos (dépôt 25 mars-15 mai), fenêtre 2027 à surveiller",
+    axe: "Arts visuels et disciplines contemporaines — pas de focale masque identifiée",
+    reseau: "Institut français / Ambassade de France en Nouvelle-Zélande",
+    echeance: "Cycle 2026 : dépôt 25 mars-15 mai. Fenêtre 2027 à surveiller au même moment.",
+    duree: "À reconfirmer",
+    prise: "À reconfirmer — réseau Institut français",
+    financement: "inconnue",
+    ecosysteme: "Scène contemporaine néo-zélandaise",
+    atelier: "À reconfirmer",
+    justif: "Arts visuels contemporains — hors zones prioritaires du projet, gardée en veille passive",
+    lien: "villa-antipode.org"
+  },
+  {
+    name: "Septentrionales", loc: "Danemark, Norvège, Suède, Finlande", status: "watch",
+    statusLabel: "AJOUTÉ (août 2026) — cycle 2026 clos (dépôt 16 fév.-2 mars), fenêtre 2027 à surveiller",
+    axe: "Toutes disciplines — cohérent avec la piste nordique « flou/brume » déjà explorée via l'Islande",
+    reseau: "Réseau des instituts/ambassades de France dans les pays scandinaves",
+    echeance: "Cycle 2026 : dépôt 16 février-2 mars, séjour 15 août-15 octobre 2026. Fenêtre 2027 à surveiller au même moment.",
+    duree: "2 mois",
+    prise: "À reconfirmer — réseau Institut français",
+    financement: "inconnue",
+    ecosysteme: "Réseau culturel franco-scandinave, quatre pays couverts",
+    atelier: "À reconfirmer",
+    justif: "Toutes disciplines : élargit la piste nordique déjà ouverte avec le Centre Textile d'Islande et SÍM Residency — pertinent à recouper si projet reste sur l'axe brume/lumière",
+    lien: "septentrionales.com"
+  },
+  {
+    name: "Magnetic 5", loc: "Royaume-Uni", status: "watch",
+    statusLabel: "AJOUTÉ (août 2026) — cycle 2026 clos (dépôt 7 avril-2 juin), fenêtre 2027 à surveiller",
+    axe: "Arts visuels, artistes professionnels — pas de focale masque",
+    reseau: "Fluxus Art Projects / réseau Institut français au Royaume-Uni",
+    echeance: "Cycle 2026 : dépôt 7 avril-2 juin. Fenêtre 2027 à surveiller au même moment.",
+    duree: "À reconfirmer",
+    prise: "À reconfirmer — réseau Institut français",
+    financement: "inconnue",
+    ecosysteme: "Réseau Fluxus Art Projects",
+    atelier: "À reconfirmer",
+    justif: "Arts visuels généralistes destinés aux artistes professionnels confirmés (profil compatible a priori) — mais pas de lien masque identifié, à garder en veille passive",
+    lien: "fluxusartprojects.com"
+  },
+  {
+    name: "Programme de résidences croisées — Ambassade de France à Singapour × National Arts Council", loc: "Cluny Park Rd, Singapour", status: "watch",
+    statusLabel: "CONFIRMÉ (guide officiel NAC) — pas d'appel ouvert permanent identifié pour l'instant",
+    axe: "Non territorial a priori — le guide officiel cite explicitement les « résidences en arts du spectacle » comme exemple type, donc théâtre potentiellement couvert",
+    reseau: "Ambassade de France à Singapour (siège : 101 Cluny Park Road) / National Arts Council de Singapour",
+    echeance: "CONFIRMÉ (guide officiel nac.gov.sg) : fonctionne par appel ouvert OU invitation directe (host + bailleurs + ambassade), pas de fenêtre de dépôt publique permanente. À surveiller pour 2027.",
+    duree: "Variable : 6 semaines à 6 mois en général (arts vivants parfois ≤ 2 semaines, extension possible 9-12 mois selon structure d'accueil)",
+    prise: "À la charge de la structure d'accueil : transport international, logement, atelier/matériel, allocation ≥ salaire minimum + subvention recherche possible",
+    financement: "financee",
+    ecosysteme: "Réseau culturel franco-singapourien, National Arts Council, structures d'accueil locales (Gillman Barracks, NTU CCA, etc. selon édition)",
+    atelier: "Dépend de la structure d'accueil retenue à chaque édition — non fixé",
+    justif: "Programme bilatéral pluridisciplinaire (arts visuels, arts vivants, recherche) — pertinence à confirmer, pas de porte d'entrée publique claire identifiée pour l'instant",
+    lien: "nac.gov.sg"
+  },
+  {
+    name: "Programme de résidences du Centre culturel franco-mozambicain (CCFM)", loc: "Maputo, Mozambique", status: "watch",
+    statusLabel: "CONFIRMÉ (août 2026) — programme officiel Institut français, à revérifier pour un appel 2027",
+    axe: "Non territorial — mais disciplines officielles incluant danse et arts de la rue, pertinent pour un volet arts vivants",
+    reseau: "Centre Culturel Franco-Mozambicain (Maputo) — soutenu par l'Institut français dans le cadre de « La Fabrique des résidences »",
+    echeance: "CONFIRMÉ (institutfrancais.com/en/node/6186) : programme officiel, disciplines « Danse, arts de la rue, arts visuels ». Dernier appel précis identifié : dépôt jusqu'au 28 avril 2023 (édition arts visuels réservée aux artistes de La Réunion ou du Mozambique). Aucun appel 2026/2027 retrouvé à ce jour — statut à reconfirmer.",
+    duree: "1 mois (édition Fabrique des résidences) — 4 semaines par site pour l'édition croisée 2023 avec la Cité des arts (La Réunion)",
+    prise: "Transport international et national, logement et espaces de travail pris en charge + allocation quotidienne (édition Fabrique des résidences) ; bourse de résidence 800€ TTC pour l'édition croisée 2023",
+    financement: "financee",
+    ecosysteme: "Scène culturelle de Maputo, réseau Institut français au Mozambique",
+    atelier: "Atelier arts visuels sur place (édition 2023) — à reconfirmer pour danse/arts de la rue",
+    justif: "CORRECTION (août 2026) : le programme officiel couvre aussi la danse et les arts de la rue, pas seulement les arts visuels — pertinence renforcée pour un volet arts vivants. Éligibilité : artistes français ou résidant en France depuis 5 ans minimum (édition Fabrique des résidences) — a priori compatible avec le profil de Cécile, contrairement à l'édition 2023 réservée Réunion/Mozambique",
+    lien: "institutfrancais.com/en/node/6186"
+  },
+  {
+    name: "Résidences Philippines (axe 6, Moriones / possession)", loc: "Philippines", status: "closed",
+    statusLabel: "Recherche à approfondir",
+    axe: "Moriones / possession collective (axe 6)",
+    reseau: "Aucun programme dédié identifié à ce stade",
+    echeance: "—",
+    duree: "—",
+    prise: "—",
+    financement: "inconnue",
+    ecosysteme: "Festival Moriones (Marinduque), artisanat masque/textile local (T'nalak, piña, broderie Lumban)",
+    atelier: "—",
+    justif: "Piste la moins avancée du répertoire — à chercher via CCP, NCCA, structures locales à Marinduque ou Manille",
+    lien: "à rechercher"
+  }
+];
+
+/* Liens directs vérifiés vers les pages officielles des résidences (recherchées et
+   contrôlées manuellement — laissé vide/absent quand aucune source fiable n'a été trouvée). */
+const RESIDENCE_LINKS = {
+  "Villa Kujoyama": "https://air-j.info/en/residence/villakujoyama",
+  "Villa Cheongju": "https://www.institutfrancais.com/en/magazine/crafts-design/mona-oren-represents-france-cheongju-craft-biennale",
+  "Villa Hanbul / Hongti Art Center Busan": "https://kr.ambafrance-culture.org/evenement/appel-a-candidatures-villa-hanbul-busan-2026-arts-visuels/",
+  "Villa Hanbul — Hongti Art Center (= Villa Busan)": "https://kr.ambafrance-culture.org/lieu/villa-hanbul-busan-hongti-art-center/",
+  "Villa Formose": "https://france-taipei.org/fr/relations-bilaterales/villa-formose",
+  "Yi Tong": "https://faguowenhua.com/en/programmes/yitong/",
+  "ACC_R — Asia Culture Center": "https://www.acc.go.kr/en/contents.do?PID=080601",
+  "AIR Taipei — dont le volet Treasure Hill Artist Village × Puppetry Art Center of Taipei (THAV × PACT)": "https://artres.moc.gov.tw/en/",
+  "AIR Taipei × Puppetry Art Center (THAV × PACT)": "https://artres.moc.gov.tw/en/",
+  "Artist-in-Residence Taipei (= AIR Taipei, donc THAV×PACT inclus)": "https://artres.moc.gov.tw/en/",
+  "Lìzé Puppet Art Colony": "https://lizepuppet.com.tw/",
+  "Tsung-Yeh Arts and Cultural Center": "https://tyart.tnc.gov.tw/",
+  "Centre Textile d'Islande (Textilmiðstöð Íslands)": "https://www.textilmidstod.is/en",
+  "SÍM Residency (Korpúlfsstaðir)": "https://www.icelandicartcenter.is/residencies/sim-residency-jorpulf",
+  "Institut français × Cité internationale des arts": "https://www.institutfrancais.com/en/programme/residence-and-professional-mobility/residencies-institut-francais-x-cite-internationale",
+  "Résidence Échos": "https://www.institutofrances.cl/fr/programmes-et-appels/echos-bourse-de-residence-au-chili/",
+  "Villa Swagatam": "https://www.villaswagatam.in/",
+  "Para Site — page Résidences": "https://www.para-site.art/en/residency",
+  "Asia Art Archive (AAA)": "https://aaa.org.hk/en",
+  "In-situ Residency": "https://www.insituresidency.com/",
+  "Programme de résidences croisées — Ambassade de France à Singapour × National Arts Council": "https://www.nac.gov.sg/docs/default-source/artist-in-residency-prog/fr-international-artists-residency-guide---singapore-france.pdf",
+  "Programme de résidences du Centre culturel franco-mozambicain (CCFM)": "https://www.institutfrancais.com/en/node/6186",
+  "Résidences EXTRA": "https://be.diplomatie.gouv.fr/fr/appel-candidatures-nouvelle-saison-des-residences-extra",
+  "Route des Résidences": "https://www.ifcambodge.com/fr/culture/residence-dartistes/route-des-residences/",
+  "Villa CreaColombia": "https://ifcolombie.fr/agenda/villa-crea-colombia-2026",
+  "Villa Bucheon": "https://kr.ambafrance-culture.org/",
+  "Résidences MORPHO": "https://alianzafrancesacostarica.com/cultura/",
+  "Ateliers du Nil — Bayt Yakan": "https://www.ifegypte.com/appel-a-candidatures-les-ateliers-du-nil/",
+  "Artist Designer in Residence (ADIR)": "https://www.ifi-id.com/fr/appel-a-candidatures-artist-designer-in-residence-adir-2026-2027/",
+  "Résidence XR Farnese–Médicis": "https://www.institutfrancais.it/fr",
+  "Villa Antipode": "https://www.villa-antipode.org/",
+  "Septentrionales": "https://septentrionales.com/",
+  "Magnetic 5": "https://fluxusartprojects.com/apply"
+};
+function residenceLink(name){
+  return RESIDENCE_LINKS[name] || null;
+}
+function linkedName(name, extraStyle){
+  const url = residenceLink(name);
+  if(!url) return name;
+  return `<a href="${url}" target="_blank" rel="noopener" class="res-link"${extraStyle ? ` style="${extraStyle}"` : ""}>${name} <span class="ext-ic">↗</span></a>`;
+}
+
+const CRITERIA = [
+  ["Statut confirmé / non-émergente", "Le programme accepte ou cible explicitement des artistes confirmés, pas uniquement des profils émergents.", "Le règlement mentionne-t-il un nombre d'années de pratique minimum compatible avec 40 ans de carrière ?", true],
+  ["Stipend + logement", "Bourse de vie et hébergement pris en charge, pas de frais de résidence à la charge de l'artiste.", "Montant de la bourse mensuelle ? Logement fourni ou à charge ? Voyage international couvert ?", true],
+  ["Accès à un atelier / équipement pertinent", "Espace de travail adapté (couture, broderie, tulle, matières fines) ou a minima un espace neutre exploitable.", "Y a-t-il un atelier dédié ? Quel équipement ? Faut-il apporter son propre matériel ?", false],
+  ["Durée 3 à 6 mois", "Fenêtre de temps cohérente avec le format retenu (tests + objet-témoin).", "Durée proposée ou négociable ? Une résidence courte peut-elle précéder une résidence plus longue ?", false],
+  ["Format compatible tests + objet-témoin", "Le programme n'exige pas une pièce de commande finie ni un rendu figé d'avance.", "Le règlement impose-t-il un format de restitution ? Est-il négociable ?", false],
+  ["Écosystème local pertinent", "Présence sur place d'un dialogue actif : artisans, institutions, communauté de pratique en lien avec l'axe visé.", "Quels partenaires locaux le programme met-il en avant ?", false],
+  ["Justification territoriale documentable", "Le lieu permet d'articuler un axe précis du projet de façon vérifiable, pas seulement symbolique.", "Peut-on nommer précisément ce que CE lieu apporte, au-delà du pays en général ?", true],
+  ["Cohérence avec le projet multi-résidences", "La candidature peut se présenter comme un module autonome tout en mentionnant sa place dans l'ensemble.", "Le format de dossier permet-il de mentionner un projet plus large sans en dépendre ?", false],
+  ["Accessibilité administrative du dossier", "Conditions d'éligibilité compatibles avec le profil réel de Cécile (parcours professionnel, pas nécessairement un diplôme récent).", "Le règlement exige-t-il un diplôme, une limite d'âge, une candidature portée par un tiers ?", true]
+];
+
+const KEYWORDS = [
+  ['"appel à candidatures" résidence masque OR broderie OR marionnette', "Capter tout appel français mentionnant masque/broderie/marionnette", "FR"],
+  ['"artist residency" mask OR embroidery OR puppetry open call', "Équivalent anglophone, hors réseau français", "EN"],
+  ['résidence Villa Kujoyama 2027', "Alerte dédiée réouverture Kujoyama", "FR"],
+  ['Villa Cheongju appel candidature', "Alerte dédiée réouverture Cheongju", "FR"],
+  ['AIR Taipei Puppetry Art Center residency', "Alerte dédiée réouverture AIR Taipei × PACT", "EN"],
+  ["résidence artiste Corée métiers d'art", "Couvrir les programmes coréens hors talchum strict (ACC, Hongti, Cheongju)", "FR"],
+  ['Textile Center Iceland residency call', "Suivre les fenêtres de candidature Blönduós", "EN"],
+  ['"artist residency" Philippines mask OR Moriones OR craft', "Combler le vide actuel côté Philippines", "EN"],
+  ['VILLÆ Institut français appel candidatures 2027', "Suivre la prochaine vague groupée du réseau VILLÆ", "FR"],
+  ['résidence bianlian OR lianpu artiste', "Couvrir spécifiquement le terrain chinois", "FR/EN"]
+];
+
+const METHOD = [
+  "google.com/alerts → coller chaque requête ci-dessus → fréquence « au plus une fois par jour » → source « Actualités + Web » → « Toutes les langues » pour les requêtes bilingues.",
+  "Regrouper les résultats en un seul e-mail récapitulatif quotidien plutôt que dix alertes séparées, pour limiter le bruit.",
+  "Compléter Google Alerts par un passage mensuel manuel sur VILLÆ + ARTCENA (les appels groupés n'apparaissent pas toujours vite dans les alertes automatiques).",
+  "Revoir cette liste tous les 6 mois : ajuster si un nouvel axe territorial (ex. Bali/topeng) devient actif."
+];
+
+/* ============================================================
+   RENDER — Plateformes
+   ============================================================ */
+function pillClass(kind){
+  if(kind === "found") return "pill found";
+  if(kind === "excluded") return "pill excluded";
+  return "pill neutral";
+}
+function pillLabel(kind){
+  if(kind === "found") return "Confirmé trouvé";
+  if(kind === "excluded") return "Explicitement exclu";
+  return "À situer";
+}
+
+function renderPlatforms(filterText){
+  const root = document.getElementById("platforms-root");
+  const navRoot = document.getElementById("region-nav");
+  root.innerHTML = "";
+  navRoot.innerHTML = "";
+  const f = (filterText || "").toLowerCase().trim();
+
+  PLATFORM_DATA.forEach(region => {
+    // build region block, filter residencies/platforms by text match
+    const matchingPlatforms = region.platforms.map(p => {
+      const platformMatches = p.name.toLowerCase().includes(f) || p.zone.toLowerCase().includes(f);
+      const filteredRes = f === "" ? p.residencies : p.residencies.filter(r =>
+        r[0].toLowerCase().includes(f) || r[1].toLowerCase().includes(f) || r[3].toLowerCase().includes(f)
+      );
+      if(f === "" || platformMatches || filteredRes.length > 0){
+        return {...p, residencies: (platformMatches && f !== "") ? p.residencies : filteredRes};
+      }
+      return null;
+    }).filter(Boolean);
+
+    if(matchingPlatforms.length === 0) return;
+
+    navRoot.innerHTML += `<button type="button" class="region-link" data-target="region-${region.id}">${region.region}</button>`;
+
+    const block = document.createElement("div");
+    block.className = "region-block";
+    block.id = "region-" + region.id;
+    let html = `<div class="region-title">${region.region}</div>`;
+
+    matchingPlatforms.forEach(p => {
+      html += `<div class="platform">
+        <div class="platform-head">
+          <div>
+            <h3>${p.name}</h3>
+            <div class="zone">${p.zone}</div>
+          </div>
+          <a class="visit" href="${p.link.startsWith('http') ? p.link : 'https://' + p.link}" target="_blank" rel="noopener">Visiter ↗</a>
+        </div>
+        <div class="platform-body">`;
+      p.residencies.forEach(r => {
+        html += `<div class="res-row">
+          <div>
+            <div class="res-name">${linkedName(r[0])}</div>
+            <div class="res-territory">${r[1]}</div>
+          </div>
+          <div><span class="${pillClass(r[2])}">${pillLabel(r[2])}</span></div>
+          <div class="res-note">${r[3]}</div>
+        </div>`;
+      });
+      html += `</div>`;
+      if(p.note){
+        html += `<div style="padding:12px 20px;font-size:12.5px;color:var(--text-soft);border-top:1px dashed var(--line);font-style:italic;">→ ${p.note}</div>`;
+      }
+      html += `</div>`;
+    });
+
+    block.innerHTML = html;
+    root.appendChild(block);
+  });
+
+  // orphans
+  const orphanMatches = f === "" ? ORPHANS : ORPHANS.filter(o =>
+    o[0].toLowerCase().includes(f) || o[1].toLowerCase().includes(f) || o[2].toLowerCase().includes(f)
+  );
+  if(orphanMatches.length > 0){
+    navRoot.innerHTML += `<button type="button" class="region-link" data-target="region-orphelines">Orphelines</button>`;
+    const block = document.createElement("div");
+    block.className = "region-block";
+    block.id = "region-orphelines";
+    let html = `<div class="orphan-block">
+      <h3>⚠ Résidences absentes de toute plateforme de veille identifiée</h3>
+      <p class="lede">Aucune base de données (nationale, réseau France ou internationale) ne les référence à ce jour — à surveiller directement sur leur propre site pour ne pas manquer un appel ouvert.</p>`;
+    orphanMatches.forEach(o => {
+      html += `<div class="orphan-row">
+        <div class="name">${linkedName(o[0])}</div>
+        <div class="territory">${o[1]}</div>
+        <div class="why">${o[2]}</div>
+      </div>`;
+    });
+    html += `</div>`;
+    block.innerHTML = html;
+    root.appendChild(block);
+  }
+
+  if(root.innerHTML === ""){
+    root.innerHTML = `<p class="empty-msg" style="display:block;">Aucun résultat pour cette recherche.</p>`;
+  }
+
+  setupScrollspy();
+}
+
+/* ---------- scrollspy: highlight the nav pill for the section in view ---------- */
+let scrollObserver = null;
+function setupScrollspy(){
+  if(scrollObserver){ scrollObserver.disconnect(); }
+  const navLinks = Array.from(document.querySelectorAll("#region-nav .region-link"));
+  const blocks = Array.from(document.querySelectorAll(".region-block"));
+  if(navLinks.length === 0 || blocks.length === 0) return;
+
+  scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      const link = navLinks.find(a => a.dataset.target === id);
+      if(!link) return;
+      if(entry.isIntersecting){
+        navLinks.forEach(a => a.classList.remove("active"));
+        link.classList.add("active");
+      }
+    });
+  }, { rootMargin: "-100px 0px -70% 0px", threshold: 0 });
+
+  blocks.forEach(b => scrollObserver.observe(b));
+}
+
+/* ---------- shadow on the sticky region nav once the page has scrolled past it ---------- */
+function setupStickyShadow(){
+  const wrap = document.getElementById("region-nav-wrap");
+  if(!wrap) return;
+  const sentinel = document.createElement("div");
+  sentinel.style.height = "1px";
+  wrap.parentNode.insertBefore(sentinel, wrap);
+  const obs = new IntersectionObserver(([e]) => {
+    wrap.classList.toggle("stuck", !e.isIntersecting);
+  }, { threshold: 0, rootMargin: "0px" });
+  obs.observe(sentinel);
+}
+
+/* ============================================================
+   RENDER — Résidences
+   ============================================================ */
+function statusClass(s){
+  if(s === "open") return "status-open";
+  if(s === "watch") return "status-watch";
+  return "status-closed";
+}
+function fundingBadge(f){
+  if(f === "financee") return { cls: "funding-financee", label: "Financée" };
+  if(f === "payante") return { cls: "funding-payante", label: "Payante" };
+  return { cls: "funding-inconnue", label: "Financement à vérifier" };
+}
+let currentStatusFilter = "all";
+
+function renderResidences(filterText){
+  const root = document.getElementById("residences-root");
+  const empty = document.getElementById("res-empty");
+  const f = (filterText || "").toLowerCase().trim();
+  root.innerHTML = "";
+
+  const filtered = RESIDENCES.filter(r => {
+    const statusOk = currentStatusFilter === "all" || r.status === currentStatusFilter;
+    const textOk = f === "" ||
+      r.name.toLowerCase().includes(f) ||
+      r.loc.toLowerCase().includes(f) ||
+      r.axe.toLowerCase().includes(f) ||
+      r.justif.toLowerCase().includes(f);
+    return statusOk && textOk;
+  });
+
+  if(filtered.length === 0){
+    empty.style.display = "block";
+    return;
+  }
+  empty.style.display = "none";
+
+  filtered.forEach(r => {
+    const card = document.createElement("div");
+    card.className = "res-card";
+    const fb = fundingBadge(r.financement);
+    card.innerHTML = `
+      <div class="res-card-head">
+        <div>
+          <h3>${linkedName(r.name)}</h3>
+          <div class="loc">${r.loc}</div>
+        </div>
+        <div class="pills">
+          <span class="status-pill ${statusClass(r.status)}">${r.statusLabel}</span>
+          <span class="funding-pill ${fb.cls}">${fb.label}</span>
+        </div>
+      </div>
+      <div class="res-card-grid">
+        <div class="res-field"><div class="label">Territoire / axe</div><div class="val">${r.axe}</div></div>
+        <div class="res-field"><div class="label">Réseau</div><div class="val">${r.reseau}</div></div>
+        <div class="res-field"><div class="label">Échéance</div><div class="val">${r.echeance}</div></div>
+        <div class="res-field"><div class="label">Durée</div><div class="val">${r.duree}</div></div>
+        <div class="res-field"><div class="label">Financement / coût</div><div class="val">${r.prise}</div></div>
+        <div class="res-field"><div class="label">Écosystème local</div><div class="val">${r.ecosysteme}</div></div>
+        <div class="res-field"><div class="label">Atelier</div><div class="val">${r.atelier}</div></div>
+        <div class="res-field"><div class="label">Lien / source</div><div class="val mono">${r.lien}</div></div>
+        <div class="res-field" style="grid-column:1/-1;"><div class="label">Justification territoriale</div><div class="val">${r.justif}</div></div>
+      </div>
+    `;
+    root.appendChild(card);
+  });
+}
+
+/* ============================================================
+   RENDER — Grille + Veille
+   ============================================================ */
+function renderGrille(){
+  const root = document.getElementById("grille-root");
+  root.innerHTML = "";
+  CRITERIA.forEach(c => {
+    const div = document.createElement("div");
+    div.className = "crit-card";
+    div.innerHTML = `
+      <div class="crit-head">
+        <h3>${c[0]}</h3>
+        <span class="redhib ${c[3] ? 'yes' : 'no'}">${c[3] ? 'Rédhibitoire si absent' : 'Non rédhibitoire'}</span>
+      </div>
+      <div class="crit-def">${c[1]}</div>
+      <div class="crit-q">${c[2]}</div>
+    `;
+    root.appendChild(div);
+  });
+}
+
+function renderVeille(){
+  const kwBody = document.getElementById("kw-body");
+  kwBody.innerHTML = "";
+  KEYWORDS.forEach(k => {
+    kwBody.innerHTML += `<tr><td class="mono">${k[0]}</td><td>${k[1]}</td><td><span class="lang-tag">${k[2]}</span></td></tr>`;
+  });
+
+  const methodRoot = document.getElementById("method-root");
+  methodRoot.innerHTML = "";
+  METHOD.forEach((m, i) => {
+    methodRoot.innerHTML += `<li><span class="num">${String(i+1).padStart(2,'0')}</span><span>${m}</span></li>`;
+  });
+}
+
+function renderStatusAlert(){
+  const banner = document.getElementById("status-alert");
+  const list = document.getElementById("status-alert-list");
+  const dateEl = document.getElementById("status-alert-date");
+  const now = new Date();
+  const dateLabel = now.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  dateEl.textContent = "Vérifié le " + dateLabel;
+
+  const opened = RESIDENCES.filter(r => r.status === "open" && r.justOpened);
+  const iconEl = document.getElementById("status-alert-icon");
+  const titleEl = document.getElementById("status-alert-title");
+
+  // La fenêtre reste toujours visible, même sans appel ouvert pertinent —
+  // c'est le rappel que ce dispositif existe et se remplira automatiquement
+  // dès qu'un nouvel appel correspondant au profil de Cécile sera flagué.
+  if(opened.length === 0){
+    banner.classList.add("is-empty");
+    iconEl.textContent = "Veille";
+    titleEl.textContent = "Aucun appel ouvert pertinent pour l'instant";
+    list.innerHTML = `<div class="alert-empty">Cette fenêtre s'activera automatiquement dès qu'une résidence correspondant au profil de Cécile passera en appel ouvert.</div>`;
+    banner.style.display = "";
+    const closeBtnEmpty = document.getElementById("status-alert-close");
+    closeBtnEmpty.onclick = () => { banner.style.display = "none"; };
+    return;
+  }
+  banner.classList.remove("is-empty");
+  iconEl.textContent = "Open call";
+  titleEl.textContent = "Résidences passées en appel ouvert";
+
+  // La bannière se ré-affiche automatiquement toutes les 24h, même si elle a
+  // été masquée, et immédiatement si la liste des résidences ouvertes change.
+  const DAY_MS = 24 * 60 * 60 * 1000;
+  const key = "veille-masques-dismissed-open-call";
+  const signature = opened.map(r => r.name).sort().join("|");
+  let dismissed = null;
+  try { dismissed = JSON.parse(localStorage.getItem(key) || "null"); } catch(e) {}
+  const stillFresh = dismissed
+    && dismissed.signature === signature
+    && (now.getTime() - dismissed.at) < DAY_MS;
+  if(stillFresh){ banner.style.display = "none"; return; }
+
+  // Échelle d'urgence : calme (jade) → bientôt (or) → urgent (rouille), en fonction
+  // du nombre de jours restants jusqu'à deadlineISO. Sans date exacte connue
+  // (candidatures en continu, fenêtre à reconfirmer), on reste au niveau calme.
+  const todayMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  function daysUntil(iso){
+    if(!iso) return null;
+    const target = new Date(iso + "T00:00:00");
+    return Math.round((target - todayMidnight) / (24 * 60 * 60 * 1000));
+  }
+  function levelFor(days){
+    if(days === null) return "calm";
+    if(days <= 14) return "urgent";
+    if(days <= 45) return "soon";
+    return "calm";
+  }
+  function whenLabel(r, days){
+    if(days === null) return "continu / à reconfirmer";
+    if(days < 0) return "clôturée";
+    if(days === 0) return "clôture aujourd'hui";
+    if(days === 1) return "clôture demain";
+    return `clôture dans ${days} j`;
+  }
+
+  const withUrgency = opened.map(r => {
+    const days = daysUntil(r.deadlineISO);
+    return { r, days, level: levelFor(days) };
+  });
+  withUrgency.sort((a, b) => (a.days === null ? 9999 : a.days) - (b.days === null ? 9999 : b.days));
+
+  list.innerHTML = withUrgency.map(({ r, days, level }) =>
+    `<div class="alert-item level-${level}">
+      <span class="dot"></span>
+      <span class="name">${linkedName(r.name)}</span>
+      <span class="when">${whenLabel(r, days)}</span>
+    </div>`
+  ).join("");
+  banner.style.display = "";
+
+  const closeBtn = document.getElementById("status-alert-close");
+  closeBtn.onclick = () => {
+    banner.style.display = "none";
+    try { localStorage.setItem(key, JSON.stringify({ signature, at: Date.now() })); } catch(e) {}
+  };
+}
+
+/* ============================================================
+   INIT + interactions
+   ============================================================ */
+document.getElementById("tabs").addEventListener("click", (e) => {
+  const btn = e.target.closest("button[data-view]");
+  if(!btn) return;
+  document.querySelectorAll("nav.tabs button").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+  document.getElementById("view-" + btn.dataset.view).classList.add("active");
+});
+
+document.getElementById("platform-search").addEventListener("input", (e) => {
+  renderPlatforms(e.target.value);
+});
+
+document.getElementById("region-nav").addEventListener("click", (e) => {
+  const btn = e.target.closest(".region-link");
+  if(!btn) return;
+  const target = document.getElementById(btn.dataset.target);
+  if(target){ target.scrollIntoView({ behavior: "smooth", block: "start" }); }
+});
+
+document.getElementById("res-search").addEventListener("input", (e) => {
+  renderResidences(e.target.value);
+});
+
+document.querySelectorAll(".toolbar .chip").forEach(chip => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll(".toolbar .chip").forEach(c => c.classList.remove("active"));
+    chip.classList.add("active");
+    currentStatusFilter = chip.dataset.status;
+    renderResidences(document.getElementById("res-search").value);
+  });
+});
+
+renderPlatforms("");
+renderResidences("");
+renderGrille();
+renderVeille();
+renderStatusAlert();
+setupStickyShadow();
+</script>
+</body>
+</html>
