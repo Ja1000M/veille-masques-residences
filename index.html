@@ -506,6 +506,53 @@
     font-family:'IBM Plex Mono',monospace;
   }
 
+  /* ---------- alertes RSS ---------- */
+  .rss-status{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--text-soft);
+    margin-bottom:18px;
+  }
+  .rss-feed-block{ margin-bottom:28px; }
+  .rss-feed-block h3{
+    font-size:15px;
+    margin-bottom:10px;
+    padding-bottom:8px;
+    border-bottom:1px dashed var(--line);
+  }
+  .rss-items{ display:flex; flex-direction:column; gap:2px; }
+  a.rss-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:14px;
+    padding:11px 12px;
+    border-radius:8px;
+    text-decoration:none;
+    color:var(--text);
+  }
+  a.rss-item:hover{ background:var(--paper-card); }
+  .rss-item-title{ font-size:13.5px; line-height:1.4; }
+  a.rss-item:hover .rss-item-title{ text-decoration:underline; }
+  .rss-item-date{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--text-soft);
+    white-space:nowrap;
+    flex-shrink:0;
+  }
+  .rss-empty, .rss-error, .rss-loading{
+    padding:14px 12px;
+    font-size:13px;
+    color:var(--text-soft);
+  }
+  .rss-error{ color:var(--rust); }
+  .rss-footnote{
+    margin-top:10px;
+    font-size:12.5px;
+    color:var(--text-soft);
+  }
+
   .empty-msg{
     padding:30px;
     text-align:center;
@@ -655,6 +702,7 @@
     <button data-view="residences">Répertoire résidences</button>
     <button data-view="grille">Grille de sélection</button>
     <button data-view="veille">Veille</button>
+    <button data-view="rss">Alertes RSS</button>
   </nav>
 
   <div class="status-alert" id="status-alert" style="display:none;">
@@ -744,6 +792,22 @@
 
     <h3 style="font-size:16px;margin-bottom:12px;">Méthode de mise en place</h3>
     <ol class="method-list" id="method-root"></ol>
+  </section>
+
+  <!-- ================= VUE 5 : ALERTES RSS ================= -->
+  <section class="view" id="view-rss">
+    <div class="page-lede">
+      <div>
+        <h2>Alertes RSS</h2>
+        <p>Flux Google Alerts branchés sur les mots-clés de veille — résultats bruts, non filtrés, à trier à la main. Rien n'est ajouté automatiquement au répertoire.</p>
+      </div>
+      <button type="button" class="chip" id="rss-refresh">↻ Rafraîchir</button>
+    </div>
+
+    <div class="rss-status" id="rss-status">Chargement…</div>
+    <div id="rss-feeds"></div>
+
+    <p class="rss-footnote">Pour ajouter une alerte : crée-la sur <a href="https://www.google.com/alerts" target="_blank" rel="noopener">google.com/alerts</a>, choisis « Livrer par : Flux RSS », copie le lien, et transmets-le pour qu'il soit ajouté ici.</p>
   </section>
 
 </main>
@@ -1734,6 +1798,92 @@ function renderStatusAlert(){
 }
 
 /* ============================================================
+   ALERTES RSS (Google Alerts)
+   ============================================================ */
+// Chaque entrée : { name: libellé affiché, url: lien du flux RSS Google Alerts
+// (page google.com/alerts → crayon → "Livrer par : Flux RSS") }.
+// Pour ajouter une alerte, ajouter une ligne ici.
+const RSS_FEEDS = [
+  { name: "Villa Cheongju appel candidature", url: "https://www.google.com/alerts/feeds/08123740177372620287/1912807593878404546" },
+  { name: "“artist residency” mask OR embroidery OR puppetry open call", url: "https://www.google.com/alerts/feeds/08123740177372620287/99396167074579981" }
+];
+
+let rssLoaded = false;
+
+function buildRssItem(item){
+  const a = document.createElement("a");
+  a.className = "rss-item";
+  a.href = item.link || "#";
+  a.target = "_blank";
+  a.rel = "noopener";
+
+  const titleEl = document.createElement("div");
+  titleEl.className = "rss-item-title";
+  // Le titre Google Alerts peut contenir des balises <b> de surlignage —
+  // on les retire en ne gardant que le texte, pour éviter d'injecter du HTML tiers.
+  const tmp = document.createElement("div");
+  tmp.innerHTML = item.title || "";
+  titleEl.textContent = tmp.textContent || tmp.innerText || "(sans titre)";
+
+  const dateEl = document.createElement("div");
+  dateEl.className = "rss-item-date";
+  if(item.pubDate){
+    const d = new Date(item.pubDate);
+    if(!isNaN(d.getTime())){
+      dateEl.textContent = d.toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric" });
+    }
+  }
+
+  a.appendChild(titleEl);
+  a.appendChild(dateEl);
+  return a;
+}
+
+async function renderRSS(force){
+  if(rssLoaded && !force) return;
+  const root = document.getElementById("rss-feeds");
+  const status = document.getElementById("rss-status");
+  status.textContent = "Chargement des flux…";
+  root.innerHTML = "";
+
+  for(const feed of RSS_FEEDS){
+    const block = document.createElement("div");
+    block.className = "rss-feed-block";
+    const h3 = document.createElement("h3");
+    h3.textContent = feed.name;
+    const itemsEl = document.createElement("div");
+    itemsEl.className = "rss-items";
+    itemsEl.innerHTML = `<div class="rss-loading">Chargement…</div>`;
+    block.appendChild(h3);
+    block.appendChild(itemsEl);
+    root.appendChild(block);
+
+    try {
+      // Google Alerts ne pose pas d'en-têtes CORS : on passe par rss2json
+      // (service tiers gratuit) qui va chercher le flux côté serveur et le
+      // renvoie en JSON exploitable depuis le navigateur.
+      const apiUrl = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(feed.url);
+      const res = await fetch(apiUrl);
+      const data = await res.json();
+      if(data.status !== "ok") throw new Error("status: " + data.status);
+
+      itemsEl.innerHTML = "";
+      if(!data.items || data.items.length === 0){
+        itemsEl.innerHTML = `<div class="rss-empty">Aucun résultat pour l'instant sur cette alerte.</div>`;
+      } else {
+        data.items.slice(0, 15).forEach(item => itemsEl.appendChild(buildRssItem(item)));
+      }
+    } catch(e){
+      itemsEl.innerHTML = `<div class="rss-error">Impossible de charger ce flux pour l'instant — réessaie dans quelques minutes (bouton « Rafraîchir »).</div>`;
+    }
+  }
+
+  const now = new Date();
+  status.textContent = "Vérifié le " + now.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" }) + " à " + now.toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+  rssLoaded = true;
+}
+
+/* ============================================================
    INIT + interactions
    ============================================================ */
 document.getElementById("tabs").addEventListener("click", (e) => {
@@ -1743,7 +1893,10 @@ document.getElementById("tabs").addEventListener("click", (e) => {
   btn.classList.add("active");
   document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
   document.getElementById("view-" + btn.dataset.view).classList.add("active");
+  if(btn.dataset.view === "rss"){ renderRSS(false); }
 });
+
+document.getElementById("rss-refresh").addEventListener("click", () => renderRSS(true));
 
 document.getElementById("platform-search").addEventListener("input", (e) => {
   renderPlatforms(e.target.value);
